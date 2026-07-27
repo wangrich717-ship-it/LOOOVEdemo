@@ -402,6 +402,14 @@ html[lang="en"] .stage{padding:8px}
 .hsb-val{font-family:var(--serif);font-size:18px;font-weight:700;line-height:1;color:#463a36}
 .hsb-val small{font-family:var(--sans);font-size:8.5px;font-weight:400;color:#8e7e78;margin-left:2px}
 .hsb-label{font-size:9px;color:#9b8f8a;letter-spacing:.04em;margin-top:3px}
+html[lang="en"] #homeBodyState .hs-bubble{
+  box-sizing:border-box;width:69.6px;height:69.6px;padding-inline:4px;overflow:hidden;gap:2px
+}
+html[lang="en"] #homeBodyState .hsb-label{
+  display:block;width:100%;max-width:58px;margin-top:2px;
+  font-size:8px;line-height:1.08;letter-spacing:0;text-align:center;
+  overflow-wrap:normal;word-break:normal;text-wrap:balance
+}
 .sphere-hint{display:none}
 
 /* ===== 首页自我入口 ===== */
@@ -740,6 +748,20 @@ html[lang="en"] .stage{padding:8px}
 .body-sleep-insight{margin-top:22px;padding-top:18px;border-top:1px solid rgba(95,95,95,.10)}
 .body-sleep-insight-label{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--primary)}
 .body-sleep-insight-text{margin-top:8px;font-family:var(--sans);font-size:12.5px;line-height:1.8;color:var(--text-secondary)}
+html[lang="en"] #homeBodyState .body-sleep-report .arc-main{font-size:19px}
+html[lang="en"] #homeBodyState .body-sleep-report .arc-val{
+  font-size:19px;font-weight:500
+}
+html[lang="en"] #homeBodyState .body-sleep-report .arc-val small{
+  font-size:11px;font-weight:500;color:var(--text-secondary)
+}
+html[lang="en"] #homeBodyState .body-sleep-report .arc-key{
+  font-size:10.5px;font-weight:500;color:var(--text-secondary)
+}
+html[lang="en"] #homeBodyState .body-sleep-insight-label{font-size:11.5px}
+html[lang="en"] #homeBodyState .body-sleep-insight-text{
+  font-family:var(--serif-en);font-size:17px;font-weight:500;line-height:1.72;color:var(--text-primary)
+}
 .body-ai-coach{position:relative;z-index:1;margin:0 4px 18px;padding:16px 18px 17px;border-radius:22px;
   background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,248,243,.44));
   border:1px solid rgba(255,255,255,.86);
@@ -2965,6 +2987,12 @@ html[lang="en"] .stage{padding:8px}
 .sr-ai-label::before{content:'';display:block;width:16px;height:1.5px;
   background:var(--primary);border-radius:2px;opacity:.65;flex-shrink:0}
 .sr-ai-text{font-family:var(--serif);font-size:13.5px;font-weight:500;color:var(--text-primary);line-height:1.9}
+html[lang="en"] :is(#ov-sleep-report,#ov-activity,#ov-heartrate,#ov-stress,#ov-spo2,#ov-temp) :is(.sr-ai-lbl,.sr-ai-label){
+  font-size:11.5px;font-weight:700;letter-spacing:.12em
+}
+html[lang="en"] :is(#ov-sleep-report,#ov-activity,#ov-heartrate,#ov-stress,#ov-spo2,#ov-temp) .sr-ai-text{
+  font-family:var(--serif-en);font-size:17px;font-weight:500;line-height:1.72;color:var(--text-primary)
+}
 .greet-item{opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s}
 .greet-item.visible{opacity:1;transform:none}
 /* ===== 早安动线 · REM+梦境屏 ===== */
@@ -3756,12 +3784,12 @@ html[lang="en"] .stage{padding:8px}
                 </div>
                 <div class="hs-ring"></div>
                 <div class="hs-ring2"></div>
-                <div class="hs-bubble" style="left:1px;top:88px;animation:floatA 4.1s ease-in-out infinite;cursor:pointer" onclick="openOverlay('ov-heartrate')"><div class="hsb-val">70<small>bpm</small></div><div class="hsb-label">心率</div></div>
-                <div class="hs-bubble" style="left:281px;top:88px;animation:floatC 3.8s ease-in-out infinite .6s;cursor:pointer" onclick="openOverlay('ov-heartrate')"><div class="hsb-val">32<small>ms</small></div><div class="hsb-label">HRV</div></div>
-                <div class="hs-bubble" style="left:28px;top:170px;animation:floatD 5.0s ease-in-out infinite .3s;cursor:pointer" onclick="openOverlay('ov-spo2')"><div class="hsb-val">97<small>%</small></div><div class="hsb-label">血氧</div></div>
-                <div class="hs-bubble" style="left:254px;top:170px;animation:floatA 4.6s ease-in-out infinite 1.1s;cursor:pointer" onclick="openOverlay('ov-activity')"><div class="hsb-val">2.9<small>k</small></div><div class="hsb-label">运动量</div></div>
-                <div class="hs-bubble" style="left:98px;top:221px;animation:floatB 3.6s ease-in-out infinite .8s;cursor:pointer" onclick="openOverlay('ov-stress')"><div class="hsb-val">3.3</div><div class="hsb-label">压力</div></div>
-                <div class="hs-bubble" style="left:184px;top:221px;animation:floatC 4.9s ease-in-out infinite .4s;cursor:pointer" onclick="openOverlay('ov-temp')"><div class="hsb-val">36.5<small>°</small></div><div class="hsb-label">体温</div></div>
+                <div class="hs-bubble" style="left:-4.8px;top:82.2px;animation:floatA 4.1s ease-in-out infinite;cursor:pointer" onclick="openOverlay('ov-heartrate')"><div class="hsb-val">70<small>bpm</small></div><div class="hsb-label">心率</div></div>
+                <div class="hs-bubble" style="left:275.2px;top:82.2px;animation:floatC 3.8s ease-in-out infinite .6s;cursor:pointer" onclick="openOverlay('ov-heartrate')"><div class="hsb-val">32<small>ms</small></div><div class="hsb-label">HRV</div></div>
+                <div class="hs-bubble" style="left:22.2px;top:164.2px;animation:floatD 5.0s ease-in-out infinite .3s;cursor:pointer" onclick="openOverlay('ov-spo2')"><div class="hsb-val">97<small>%</small></div><div class="hsb-label">血氧</div></div>
+                <div class="hs-bubble" style="left:248.2px;top:164.2px;animation:floatA 4.6s ease-in-out infinite 1.1s;cursor:pointer" onclick="openOverlay('ov-activity')"><div class="hsb-val">2.9<small>k</small></div><div class="hsb-label">运动量</div></div>
+                <div class="hs-bubble" style="left:92.2px;top:215.2px;animation:floatB 3.6s ease-in-out infinite .8s;cursor:pointer" onclick="openOverlay('ov-stress')"><div class="hsb-val">3.3</div><div class="hsb-label">压力</div></div>
+                <div class="hs-bubble" style="left:178.2px;top:215.2px;animation:floatC 4.9s ease-in-out infinite .4s;cursor:pointer" onclick="openOverlay('ov-temp')"><div class="hsb-val">36.5<small>°</small></div><div class="hsb-label">体温</div></div>
               </div>
             </div>
             <div class="body-sleep-report">
@@ -6652,7 +6680,7 @@ const I18n={
     '血氧测量':'Blood oxygen',
     '体表温度':'Skin temperature',
     '2026年6月17日':'June 17, 2026',
-    'LOOOVE AI · 洞察':'LOOOVE AI · INSIGHT',
+    'LOOOVE AI · 洞察':'LOOOVE insight',
     '今日平均心率74次/分，处于正常范围。孕期心率比孕前高约10–15次属正常生理反应——血液循环量增加了约50%。若静息状态持续超过100次/分，建议在下次产检时告知医生。':'Today’s average heart rate is 74 bpm, within the normal range. A rise of 10–15 bpm during pregnancy is common as blood volume increases. If resting heart rate stays above 100 bpm, mention it at your next prenatal visit.',
     '正 常':'NORMAL',
     '今日心率走势':'TODAY’S HEART RATE',
@@ -10897,12 +10925,14 @@ function drawChart(){
     box.appendChild(s);
   }
 })();
+const fitPhoneBasePixelRatio=window.devicePixelRatio||1;
 function fitPhone(){
   const ph=document.getElementById('phone');
   const stage=document.querySelector('.stage');
   const viewport=window.visualViewport;
-  const viewportHeight=viewport?.height||window.innerHeight;
-  const viewportWidth=viewport?.width||window.innerWidth;
+  const pixelRatio=(window.devicePixelRatio||fitPhoneBasePixelRatio)/fitPhoneBasePixelRatio;
+  const viewportHeight=window.innerHeight*pixelRatio;
+  const viewportWidth=window.innerWidth*pixelRatio;
   const viewportTop=viewport?.offsetTop||0;
   const viewportLeft=viewport?.offsetLeft||0;
   const maxScale=1.08;
