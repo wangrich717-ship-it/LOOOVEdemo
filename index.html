@@ -733,6 +733,310 @@ html[lang="en"] #homeBodyState .hsb-label{
   -webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%);
   border-color:rgba(255,255,255,.82);
   box-shadow:0 18px 44px -30px rgba(125,91,74,.58),inset 0 1px 0 rgba(255,255,255,.86)}
+/* ===== 互动 · 单一纵向 AI 内容流 ===== */
+.proactive-search-btn{width:28px;height:36px;flex:0 0 28px;border:0;background:transparent;color:var(--consultant-ink);
+  display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:color .2s ease,transform .2s ease}
+.proactive-search-btn:hover{color:var(--consultant-accent);transform:translateY(-1px)}
+.proactive-search-btn:active{transform:scale(.92)}
+.proactive-search-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.proactive-search-panel{position:absolute;z-index:48;top:124px;left:18px;right:18px;height:46px;padding:0 8px 0 14px;
+  display:flex;align-items:center;gap:8px;border:1px solid rgba(82,72,68,.09);border-radius:16px;
+  background:rgba(255,255,255,.96);box-shadow:0 12px 32px rgba(78,66,60,.12);opacity:0;pointer-events:none;
+  transform:translateY(-8px) scale(.985);transform-origin:50% 0;
+  transition:opacity .2s ease,transform .25s var(--ease-smooth)}
+.home-child-screen.searching .proactive-search-panel{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
+.proactive-search-leading{width:16px;height:16px;flex:0 0 16px;fill:none;stroke:#9b918d;stroke-width:1.7;stroke-linecap:round}
+.proactive-search-panel input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#514b48;
+  font-family:var(--sans);font-size:10.5px;line-height:1}
+.proactive-search-panel input::placeholder{color:#aaa19d}
+.proactive-search-panel input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.proactive-search-status{min-width:25px;color:#a09692;font-family:var(--sans);font-size:8.5px;text-align:right;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.proactive-search-next,.proactive-search-close{border:0;background:transparent;color:#756d69;display:flex;align-items:center;
+  justify-content:center;padding:0;cursor:pointer;transition:color .18s ease,background .18s ease,transform .18s ease}
+.proactive-search-next{width:31px;height:31px;flex:0 0 31px;border-radius:50%;background:#fff7f3;color:var(--consultant-accent)}
+.proactive-search-close{width:25px;height:31px;flex:0 0 25px;border-radius:10px}
+.proactive-search-next:hover,.proactive-search-close:hover{color:#ee6f55;background:#fff1ec}
+.proactive-search-next:active,.proactive-search-close:active{transform:scale(.92)}
+.proactive-search-next svg,.proactive-search-close svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.home-awareness-placeholder-body.proactive-body{inset:124px 0 78px;overflow:hidden}
+.home-awareness-placeholder-body.proactive-body{transition:inset .26s var(--ease-smooth)}
+.home-child-screen.searching .home-awareness-placeholder-body.proactive-body{inset:180px 0 78px}
+.proactive-feed{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:17px 20px 64px;
+  scrollbar-width:none;overscroll-behavior:contain;color:#4e4a48;font-family:var(--sans)}
+.proactive-feed::-webkit-scrollbar{display:none}
+.proactive-stream-item{animation:proactiveReveal .45s var(--ease-smooth) both}
+.proactive-stream-item+.proactive-stream-item{margin-top:14px}
+.proactive-stream-item.is-search-match{outline:2px solid rgba(238,132,104,.7);outline-offset:5px;border-radius:25px;
+  animation:proactiveSearchMatch .62s var(--ease-smooth) both}
+@keyframes proactiveSearchMatch{0%{outline-color:rgba(238,132,104,0)}55%{outline-color:rgba(238,132,104,.82)}100%{outline-color:rgba(238,132,104,.7)}}
+.proactive-simulation-toast{position:absolute;z-index:50;top:112px;left:50%;max-width:calc(100% - 32px);
+  padding:12px 21px;border-radius:999px;background:rgba(65,59,56,.88);color:#fff;font-size:13.5px;font-weight:600;
+  letter-spacing:.06em;white-space:nowrap;pointer-events:none;opacity:0;
+  transform:translate(-50%,-12px);box-shadow:0 14px 36px rgba(55,48,44,.18);
+  transition:opacity .22s ease,transform .22s var(--ease-smooth)}
+.proactive-simulation-toast.on{opacity:1;transform:translate(-50%,0)}
+.proactive-agent-bubble{position:relative;width:94%;padding:15px 16px 17px;border-radius:22px 22px 22px 7px;
+  background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.96);
+  box-shadow:0 12px 28px rgba(75,66,61,.08),inset 0 1px 0 rgba(255,255,255,.98)}
+.proactive-agent-bubble::before{content:"";position:absolute;left:-1px;bottom:-1px;width:12px;height:12px;
+  background:linear-gradient(135deg,transparent 49%,rgba(255,255,255,.9) 50%);border-bottom-left-radius:5px}
+.proactive-ai-line{display:flex;align-items:center;gap:8px;margin:0 2px 10px;color:#807975;font-size:9px;font-weight:650;letter-spacing:.13em}
+.proactive-ai-line i{width:6px;height:6px;border-radius:50%;background:#77a484;box-shadow:0 0 0 4px rgba(119,164,132,.1)}
+.proactive-ai-line time{margin-left:auto;color:#aaa29e;font-size:8px;font-weight:400;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.proactive-primary-copy{margin:0;font-family:var(--serif);font-size:15.36px;font-weight:400;line-height:1.75;letter-spacing:.01em;color:#4a4644}
+.proactive-primary-copy p{margin:0}.proactive-primary-copy p+p{margin-top:11px}
+.proactive-metric{color:var(--consultant-accent);background:transparent;padding:0;border-radius:0;font-weight:500}
+.proactive-completion-feedback .proactive-agent-bubble{width:100%;padding:15px 16px 16px}
+.proactive-feedback-copy{font-family:var(--serif);font-size:15.36px;font-weight:400;line-height:1.75;letter-spacing:.01em;color:#4a4644}
+.proactive-feedback-copy p{margin:0}
+.proactive-recovery-plan .proactive-agent-bubble{width:100%;padding:16px 14px 15px}
+.proactive-practice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.proactive-practice-grid:empty{display:none}
+.proactive-stage-item{animation:proactiveReveal .45s var(--ease-smooth) both}
+.proactive-stage-item.is-opening{transform:scale(.965)!important;border-color:rgba(238,132,104,.72)!important;
+  box-shadow:0 0 0 3px rgba(238,132,104,.16),0 12px 30px rgba(121,78,64,.16)!important}
+.proactive-stage-item.is-opening::after{content:"";position:absolute;inset:0;z-index:4;border-radius:inherit;
+  border:2px solid rgba(238,132,104,.62);background:rgba(255,244,239,.10);pointer-events:none;
+  animation:recommendationConfirm .65s var(--ease-smooth) both}
+.proactive-stage-item.is-opening .proactive-practice-arrow{background:var(--consultant-accent);border-color:var(--consultant-accent);
+  color:#fff;transform:translateX(2px)}
+.proactive-practice-card{position:relative;width:100%;overflow:hidden;padding:0;border:1px solid rgba(76,70,66,.1);border-radius:23px;
+  background:rgba(255,255,255,.82);color:inherit;text-align:left;cursor:pointer;box-shadow:0 14px 32px rgba(80,69,62,.09);
+  transition:transform .22s var(--ease-smooth),box-shadow .22s ease}
+.proactive-practice-card:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(80,69,62,.13)}
+.proactive-practice-card:active{transform:scale(.99)}
+.proactive-practice-media{display:block;position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#fff}
+.proactive-practice-media img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1);mix-blend-mode:multiply}
+.proactive-practice-media::after{content:"";position:absolute;inset:0;border-bottom:1px solid rgba(69,64,61,.08);pointer-events:none}
+.proactive-practice-copy{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:13px 14px 14px}
+.proactive-practice-copy h4{margin:0;font-family:var(--serif);font-size:16px;font-weight:600;color:#474341}
+.proactive-practice-copy p{margin-top:5px;color:#958d89;font-size:9px;line-height:1.45;letter-spacing:.04em}
+.proactive-practice-arrow{width:30px;height:30px;border:1px solid rgba(73,68,65,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#635e5a;font-size:14px;background:#fff}
+.proactive-practice-grid .proactive-practice-card{border-radius:16px;box-shadow:0 8px 20px rgba(80,69,62,.08)}
+.proactive-card-grid .proactive-practice-copy{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 20px;align-items:center;column-gap:6px;min-height:65px;padding:10px 9px 11px}
+.proactive-card-grid .proactive-practice-copy>span:first-child{display:block;min-width:0}
+.proactive-card-grid .proactive-practice-copy h4{margin:0;font-size:12px;line-height:1.45}
+.proactive-card-grid .proactive-practice-copy p{margin-top:5px;font-size:9.75px;line-height:1.4;letter-spacing:.025em}
+.proactive-card-grid .proactive-practice-copy h4,.proactive-card-grid .proactive-practice-copy p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.proactive-card-grid .proactive-practice-arrow{position:static;justify-self:end;align-self:center;width:20px;height:20px;font-size:11px}
+.proactive-stream-break{height:1px;margin:28px 0 22px;background:linear-gradient(90deg,transparent,rgba(73,68,64,.13),transparent)}
+.proactive-user-label,.proactive-deep-user-meta{display:flex;width:100%;align-items:center;justify-content:center;margin:0 0 9px;text-align:center;color:#a09893;font-size:8px;letter-spacing:.1em}
+.proactive-user-label time,.proactive-deep-user-meta time{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.proactive-user-bubble{width:fit-content;max-width:82%;margin-left:auto;padding:13px 17px;border-radius:26px 26px 7px 26px;
+  background:rgba(255,127,99,.12);border:1px solid rgba(255,127,99,.08);
+  box-shadow:0 10px 24px rgba(139,91,75,.10);color:var(--consultant-accent);font-family:var(--serif);font-size:15.36px;font-weight:500;line-height:1.75}
+.proactive-user-upload{width:100%}
+.proactive-user-upload-card{position:relative;display:block;width:78%;max-width:260px;margin-left:auto;aspect-ratio:4/3;padding:5px;overflow:hidden;
+  border-radius:22px 22px 7px 22px;background:rgba(255,127,99,.12);border:1px solid rgba(255,127,99,.08);
+  box-shadow:0 12px 28px rgba(139,91,75,.11)}
+.proactive-user-upload-card img{display:block;width:100%;height:100%;object-fit:cover;border-radius:17px 17px 4px 17px}
+.proactive-support-plan .proactive-agent-bubble{width:100%;padding:16px 14px 15px}
+.proactive-analysis-copy{margin:0;font-family:var(--serif);font-size:15.36px;font-weight:400;line-height:1.75;letter-spacing:.01em;color:#4a4644}
+.proactive-analysis-copy p{margin:0}.proactive-analysis-copy p+p{margin-top:11px}
+.proactive-support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.proactive-support-grid:empty{display:none}
+.proactive-support-card{position:relative;width:100%;overflow:hidden;padding:0;border:1px solid rgba(75,68,64,.09);border-radius:16px;
+  background:rgba(255,255,255,.84);color:inherit;text-align:left;cursor:pointer;box-shadow:0 8px 20px rgba(79,67,60,.08);
+  transition:transform .22s var(--ease-smooth),box-shadow .22s ease,border-color .22s ease}
+.proactive-support-card:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(79,67,60,.13)}
+.proactive-support-card:active{transform:scale(.99)}
+.proactive-support-card.selected{border-color:rgba(112,144,126,.4);box-shadow:0 15px 36px rgba(97,119,105,.14)}
+.proactive-art-media{display:block;width:100%;aspect-ratio:4/3;overflow:hidden;background:#fbfaf7}
+.proactive-art-media img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-food-plan .proactive-agent-bubble{width:100%;padding:16px 14px 15px}
+.proactive-food-copy{font-family:var(--serif);font-size:15.36px;font-weight:400;line-height:1.75;letter-spacing:.01em;color:#4a4644}
+.proactive-food-copy p{margin:0}.proactive-food-copy p+p{margin-top:11px}
+.proactive-food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.proactive-food-grid:empty{display:none}
+.proactive-food-card{position:relative;width:100%;overflow:hidden;padding:0;border:1px solid rgba(75,68,64,.09);border-radius:16px;
+  background:rgba(255,255,255,.84);color:inherit;text-align:left;cursor:pointer;box-shadow:0 8px 20px rgba(79,67,60,.08);
+  transition:transform .22s var(--ease-smooth),box-shadow .22s ease}
+.proactive-food-card:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(79,67,60,.13)}
+.proactive-food-card:active{transform:scale(.99)}
+.proactive-food-media{display:block;width:100%;aspect-ratio:4/3;overflow:hidden;background:#fbfaf7}
+.proactive-food-media img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-night-plan .proactive-agent-bubble,
+.proactive-perspective-plan .proactive-agent-bubble{width:100%;padding:16px 14px 15px}
+.proactive-night-copy,.proactive-perspective-copy{font-family:var(--serif);font-size:15.36px;font-weight:400;
+  line-height:1.75;letter-spacing:.01em;color:#4a4644}
+.proactive-night-copy p,.proactive-perspective-copy p{margin:0}
+.proactive-night-copy p+p,.proactive-perspective-copy p+p{margin-top:11px}
+.proactive-resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}
+.proactive-resource-grid:empty{display:none}
+.proactive-resource-card{position:relative;width:100%;overflow:hidden;padding:0;border:1px solid rgba(75,68,64,.09);
+  border-radius:16px;background:rgba(255,255,255,.84);color:inherit;text-align:left;cursor:pointer;
+  box-shadow:0 8px 20px rgba(79,67,60,.08);
+  transition:transform .22s var(--ease-smooth),box-shadow .22s ease}
+.proactive-resource-card:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(79,67,60,.13)}
+.proactive-resource-card:active{transform:scale(.99)}
+.proactive-resource-media{display:block;width:100%;aspect-ratio:4/3;overflow:hidden;background:#fbfaf7}
+.proactive-resource-media img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-deep-visual{position:relative;display:block;width:100%;aspect-ratio:4/3;overflow:hidden;background:#fbf7f2}
+.proactive-deep-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-deep-thread{display:grid;gap:12px;margin-top:12px}
+.proactive-deep-message{animation:proactiveReveal .4s var(--ease-smooth) both}
+.proactive-deep-message.ai{width:94%;padding:15px 16px 17px;border-radius:22px 22px 22px 7px;background:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.96);box-shadow:0 12px 28px rgba(75,66,61,.08)}
+.proactive-deep-message.user{width:100%;margin-left:auto;color:var(--consultant-accent)}
+.proactive-deep-user-bubble{width:fit-content;max-width:82%;margin-left:auto;padding:12px 15px;border-radius:22px 22px 6px 22px;
+  background:rgba(255,127,99,.12);border:1px solid rgba(255,127,99,.08);box-shadow:0 10px 24px rgba(139,91,75,.10);
+  color:var(--consultant-accent)}
+.proactive-deep-message p{margin:0;font-family:var(--serif);font-size:15.36px;font-weight:400;line-height:1.75;letter-spacing:.01em;color:#4a4644}
+.proactive-deep-message.user p{color:inherit;font-weight:500}
+.proactive-deep-message p+p{margin-top:11px}
+.proactive-deep-signal{display:flex;align-items:center;gap:7px;margin:1px 0 10px;color:var(--consultant-accent);
+  font-size:8px;font-weight:700;letter-spacing:.13em}
+.proactive-deep-signal::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(255,127,99,.08)}
+.proactive-message-composer{position:absolute;z-index:13;left:0;right:0;bottom:0;min-height:78px;padding:10px 16px 14px;
+  display:grid;grid-template-columns:30px minmax(0,1fr);align-items:center;gap:10px;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);border-top:1px solid rgba(76,69,65,.08);box-shadow:0 -8px 24px rgba(74,65,60,.035)}
+.proactive-composer-mic{display:flex;width:30px;height:44px;align-items:center;justify-content:center;color:#8f8985}
+.proactive-composer-mic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.proactive-composer-field{height:48px;padding:3px 4px 3px 16px;display:grid;grid-template-columns:minmax(0,1fr) 42px;align-items:center;
+  border:1px solid rgba(76,69,65,.1);border-radius:25px;background:#fbf8f6;transition:border-color .2s ease,box-shadow .2s ease}
+.proactive-composer-field:focus-within{border-color:rgba(255,127,99,.3);box-shadow:0 0 0 3px rgba(255,127,99,.065)}
+.proactive-composer-field input{width:100%;min-width:0;height:40px;padding:0;border:0;background:transparent;color:#4f4946;
+  font:12px/1 var(--serif);outline:none}
+.proactive-composer-field input::placeholder{color:#aaa09b}
+.proactive-composer-send{width:42px;height:42px;padding:0;border:0;border-radius:50%;background:var(--consultant-accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 7px 16px rgba(255,127,99,.22)}
+.proactive-composer-send svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.proactive-composer-send:active{transform:scale(.94)}
+.proactive-composer-send:disabled,.proactive-composer-field input:disabled{opacity:.48;cursor:default}
+.proactive-detail-screen{position:absolute;inset:0;z-index:15;display:none;overflow:hidden;
+  background:linear-gradient(165deg,#fff,#fbf9f7 68%,#f7f2ee)}
+.proactive-detail-screen.on{display:block;animation:practiceVideoIn .32s var(--ease-smooth) both}
+.proactive-detail-body{position:absolute;inset:103px 0 0;overflow-y:auto;padding:22px 20px 48px;scrollbar-width:none}
+.proactive-detail-body::-webkit-scrollbar{display:none}
+.proactive-art-page-visual{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:24px;background:#fbfaf7;
+  box-shadow:0 18px 42px rgba(66,59,55,.12)}
+.proactive-art-page-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-detail-body h3{margin-top:9px;font-family:var(--serif);font-size:26px;font-weight:500;line-height:1.35;color:#47423f}
+.proactive-art-page-visual + h3{margin-top:22px}
+.proactive-art-page-intro{margin-top:16px;font-family:var(--serif);font-size:13px;line-height:1.8;color:#6d6662}
+.proactive-art-page-address{display:grid;grid-template-columns:auto minmax(0,1fr) 32px;align-items:center;column-gap:11px;margin-top:20px;padding:13px 13px 13px 15px;border-radius:18px;
+  background:rgba(255,255,255,.82);border:1px solid rgba(76,69,65,.08);box-shadow:0 10px 24px rgba(67,58,53,.06)}
+.proactive-art-page-address span{color:var(--consultant-accent);font-size:8px;font-weight:700;line-height:1;letter-spacing:.13em}
+.proactive-art-page-address strong{display:block;min-width:0;font-family:var(--serif);font-size:11px;font-weight:500;line-height:1.55;color:#554f4b}
+.proactive-art-page-navigation{display:grid;width:32px;height:32px;place-items:center;border:1px solid rgba(255,127,99,.2);border-radius:50%;
+  background:rgba(255,127,99,.09);color:var(--consultant-accent);transition:transform .22s ease,background .22s ease}
+.proactive-art-page-navigation:active{transform:scale(.93);background:rgba(255,127,99,.16)}
+.proactive-art-page-navigation svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.proactive-conversation-body{inset:103px 0 78px;padding:19px 20px 30px}
+.proactive-conversation-body .proactive-deep-thread{margin-top:0}
+.proactive-food-page-visual{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:24px;background:#fbfaf7;
+  box-shadow:0 18px 42px rgba(66,59,55,.12)}
+.proactive-food-page-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-food-page-visual + h3{margin-top:20px}
+.proactive-food-steps{margin-top:20px;padding:16px;border-radius:20px;background:rgba(255,255,255,.84);
+  border:1px solid rgba(76,69,65,.08);box-shadow:0 10px 26px rgba(67,58,53,.06)}
+.proactive-food-steps b{display:block;color:#5c5551;font-size:10px;letter-spacing:.08em}
+.proactive-food-steps ol{display:grid;gap:9px;margin:12px 0 0 17px;color:#635c58;font-family:var(--serif);font-size:12px;line-height:1.7}
+.proactive-resource-body{padding-bottom:38px}
+.proactive-resource-visual{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:24px;background:#fbfaf7;
+  box-shadow:0 18px 42px rgba(66,59,55,.12)}
+.proactive-resource-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.proactive-resource-title{margin-top:20px!important;font-size:24px!important}
+.proactive-resource-meta{margin-top:7px;color:#918884;font-size:9px;line-height:1.55;letter-spacing:.025em}
+.proactive-resource-intro{margin-top:16px;font-family:var(--serif);font-size:12.5px;line-height:1.78;color:#635d59}
+.proactive-resource-action{width:100%;height:46px;margin-top:16px;border:0;border-radius:23px;background:var(--consultant-accent);
+  color:#fff;font:600 11px/1 var(--sans);letter-spacing:.04em;cursor:pointer;
+  box-shadow:0 10px 22px rgba(255,127,99,.2);transition:transform .2s ease,background .2s ease}
+.proactive-resource-action:active{transform:scale(.985)}
+.proactive-resource-action.on{background:#54504d}
+.practice-video-screen{position:absolute;inset:0;z-index:14;display:none;background:linear-gradient(165deg,#fff,#fbf9f7 68%,#f7f2ee);overflow-y:auto;scrollbar-width:none}
+.practice-video-screen::-webkit-scrollbar{display:none}
+.practice-video-screen.on{display:block;animation:practiceVideoIn .32s var(--ease-smooth) both}
+.practice-video-topbar{position:sticky;top:0;z-index:3;height:103px;padding:55px 22px 10px;display:grid;grid-template-columns:34px 1fr 34px;align-items:center;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(72,67,63,.08)}
+.practice-video-close{width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#55514e;font-size:23px;line-height:1;cursor:pointer}
+.practice-video-topbar h2{text-align:center;font-family:var(--serif);font-size:15px;font-weight:600;color:#4b4744}
+.practice-video-body{padding:20px 20px 44px}
+.practice-video-player{position:relative;overflow:hidden;width:100%;aspect-ratio:4/3;border-radius:24px;background:#f1efed;box-shadow:0 18px 42px rgba(66,59,55,.14)}
+.practice-video-player img{width:100%;height:100%;display:block;object-fit:cover;filter:grayscale(1)}
+.practice-video-player::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),transparent 60%,rgba(0,0,0,.16));pointer-events:none}
+.practice-video-play{position:absolute;z-index:2;left:50%;top:50%;width:54px;height:54px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.76);
+  border-radius:50%;background:rgba(52,49,47,.78);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(9px)}
+.practice-video-play::before{content:"";width:0;height:0;margin-left:4px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid currentColor}
+.practice-video-play.playing{opacity:.12}.practice-video-player:hover .practice-video-play.playing{opacity:.8}
+.practice-video-play.playing::before{width:11px;height:14px;margin:0;border:0;border-left:4px solid currentColor;border-right:4px solid currentColor}
+.practice-video-fullscreen{position:absolute;z-index:4;top:13px;right:13px;width:34px;height:34px;border:1px solid rgba(255,255,255,.62);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(48,45,43,.58);color:#fff;cursor:pointer;backdrop-filter:blur(8px)}
+.practice-video-fullscreen svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.practice-video-copy{margin:18px 2px 0}.practice-video-copy h3{font-family:var(--serif);font-size:22px;font-weight:500;color:#484441}
+.practice-video-copy p{margin-top:7px;color:#8e8783;font-size:10px;line-height:1.6}
+.practice-video-timeline{position:absolute;z-index:3;left:15px;right:15px;bottom:13px}
+.practice-video-track{height:4px;border-radius:99px;background:rgba(255,255,255,.48);overflow:hidden;box-shadow:0 1px 5px rgba(0,0,0,.12)}
+.practice-video-track i{display:block;width:0;height:100%;border-radius:inherit;background:#ed8066;transition:width .18s linear}
+.practice-video-time{display:flex;justify-content:space-between;margin-top:7px;color:rgba(255,255,255,.92);font-size:8px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.practice-video-step{margin-top:18px;padding:15px;border-radius:18px;background:#fff;border:1px solid rgba(70,65,62,.08);box-shadow:0 10px 24px rgba(67,58,53,.07)}
+.practice-video-step span{display:block;color:#a09894;font-size:8px;letter-spacing:.12em}.practice-video-step b{display:block;margin-top:7px;font-family:var(--serif);font-size:15px;font-weight:600;color:#504b48}
+.practice-video-dots{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:13px}
+.practice-video-dots i{height:3px;border-radius:99px;background:#e4e0dd}.practice-video-dots i.on{background:#4f4a47}
+.practice-video-screen.is-expanded{overflow:hidden}
+.practice-video-screen.is-expanded .practice-video-topbar,
+.practice-video-screen.is-expanded .practice-video-copy,
+.practice-video-screen.is-expanded .practice-video-step{display:none}
+.practice-video-screen.is-expanded .practice-video-body{position:absolute;inset:0;padding:0}
+.practice-video-screen.is-expanded .practice-video-player{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none}
+.practice-video-screen.is-expanded .practice-video-player img{object-fit:contain;background:#181715}
+.practice-video-screen.is-expanded .practice-video-fullscreen{top:58px;right:20px}
+@keyframes proactiveReveal{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes recommendationConfirm{0%{opacity:0;transform:scale(.98)}35%,75%{opacity:1;transform:scale(1)}100%{opacity:.42;transform:scale(1)}}
+@keyframes practiceVideoIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.proactive-stream-item,.proactive-deep-message,.practice-video-screen.on,.proactive-detail-screen.on{animation:none}}
+
+/* English-only type scale for the current Interaction and Journey modules. */
+html[lang="en"] #homeAwarenessPlaceholder .proactive-ai-line{font-size:10px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-ai-line time{font-size:9px}
+html[lang="en"] #homeAwarenessPlaceholder :is(
+  .proactive-primary-copy,
+  .proactive-feedback-copy,
+  .proactive-analysis-copy,
+  .proactive-food-copy,
+  .proactive-night-copy,
+  .proactive-perspective-copy,
+  .proactive-user-bubble,
+  .proactive-deep-message p
+){font-size:17.2px;line-height:1.7}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-user-label,
+html[lang="en"] #homeAwarenessPlaceholder .proactive-deep-user-meta{font-size:9.5px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-card-grid .proactive-practice-copy h4{
+  font-size:13.5px;line-height:1.4
+}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-card-grid .proactive-practice-copy p{
+  font-size:11.5px;line-height:1.35;letter-spacing:.01em
+}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-composer-field input{font-size:13.5px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-detail-body h3{font-size:27px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-art-page-intro,
+html[lang="en"] #homeAwarenessPlaceholder .proactive-resource-intro{font-size:14.5px;line-height:1.72}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-art-page-address span{font-size:9.5px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-art-page-address strong{font-size:12.5px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-food-steps b{font-size:11.5px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-food-steps ol{font-size:14px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-resource-meta{font-size:10.5px}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-resource-action{font-size:12.5px}
+html[lang="en"] #homeAwarenessPlaceholder .practice-video-copy p{font-size:11.5px}
+html[lang="en"] #homeAwarenessPlaceholder .practice-video-step span{font-size:9.5px}
+html[lang="en"] #homeAwarenessPlaceholder .practice-video-step b{font-size:16.5px}
+html[lang="en"] #t-diary .growth-node-meta{font-size:12px}
+html[lang="en"] #t-diary .growth-node-copy{font-size:15px;line-height:1.68;letter-spacing:.018em}
+
+@keyframes homeOrbFloatA{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(6px,-10px,0)}}
+@keyframes homeOrbFloatB{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-7px,8px,0)}}
+@keyframes homeOrbFloatC{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(8px,9px,0)}}
+@keyframes homeOrbFloatD{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-6px,-11px,0)}}
+@keyframes homeOrbFloatX{0%,100%{transform:translateX(-50%) translate3d(0,0,0)}50%{transform:translateX(-50%) translate3d(0,-8px,0)}}
+#home-morn>.ai-report,#home-eve>.ai-report{position:relative;z-index:6;margin:-230px 22px 14px;
+  display:none;
+  background:linear-gradient(155deg,rgba(255,255,255,.7),rgba(255,248,244,.5));
+  -webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%);
+  border-color:rgba(255,255,255,.82);
+  box-shadow:0 18px 44px -30px rgba(125,91,74,.58),inset 0 1px 0 rgba(255,255,255,.86)}
 .home-state-screen{display:none;position:absolute;inset:0;z-index:80;padding:0 24px 34px;
   overflow-y:auto;overflow-x:hidden}
 .home-state-screen::-webkit-scrollbar{display:none}
@@ -1486,6 +1790,12 @@ html[lang="en"] #homeBodyState .body-sleep-insight-text{
 
 /* ===== 成长轨迹 ===== */
 .diary-hero{align-items:center}
+#t-diary{overflow:hidden}
+#t-diary>.tab-scroll-area{top:74px;bottom:0;padding-bottom:0;display:flex;flex-direction:column;overflow:hidden}
+#t-diary>.tab-scroll-area>.growth-filter-row{position:relative;z-index:8;flex:0 0 40px;margin:0 0 16px;
+  background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.growth-list-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;overscroll-behavior:contain;scrollbar-width:none}
+.growth-list-scroll::-webkit-scrollbar{display:none}
 .growth-badge-float,.growth-review-float{position:absolute;right:8px;top:52%;bottom:auto;transform:translateY(-50%);z-index:36;width:52px;height:52px;border-radius:50%;
   border:1px solid rgba(238,132,102,.22);background:rgba(255,255,255,.82);color:var(--primary);
   -webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);
@@ -1568,6 +1878,40 @@ html[lang="en"] #homeBodyState .body-sleep-insight-text{
 .growth-report-brief{display:flex;gap:8px;margin-top:11px}
 .growth-report-brief span{flex:1;padding:9px 8px;border-radius:14px;background:rgba(255,255,255,.58);font-size:9.5px;line-height:1.45;color:var(--text-muted)}
 .growth-report-brief b{display:block;margin-top:2px;font-family:var(--serif);font-size:14px;color:var(--text-primary)}
+.growth-line{position:relative;min-height:0;padding:0 0 8px;display:flex;flex-direction:column;gap:16px;justify-content:flex-start;overflow:visible;flex:0 0 auto}
+.growth-line::before{display:none}
+.growth-spine{position:absolute;left:18px;top:4px;bottom:4px;width:1px;background:rgba(238,132,102,.34);
+  border-radius:999px;box-shadow:0 0 4px rgba(238,132,102,.12);pointer-events:none}
+.growth-trail-node{position:relative;z-index:2;padding-left:46px;display:flex;align-items:center;flex:0 0 auto;opacity:0;
+  animation:growthNodeIn .62s cubic-bezier(.2,.82,.22,1) forwards}
+.growth-trail-node::before{content:'';position:absolute;z-index:4;left:12px;top:calc(50% - 6px);width:12px;height:12px;
+  border-radius:50%;background:var(--node-color,#e88468);
+  box-shadow:0 0 0 7px color-mix(in srgb,var(--node-color,#e88468) 14%,transparent)}
+.growth-trail-node::after{content:'';position:absolute;z-index:1;left:18px;top:50%;width:28px;border-top:1px dashed color-mix(in srgb,var(--node-color,#e88468) 34%,transparent)}
+.growth-trail-node[data-growth="highlight"]{--node-color:#d5a13c}
+.growth-trail-node[data-growth="low"]{--node-color:#c97a8d}
+.growth-trail-node[data-growth="interaction"]{--node-color:#e88468}
+.growth-trail-node[data-growth="report"]{--node-color:#7fa08b}
+.growth-node-button{position:relative;width:100%;min-height:82px;padding:14px 15px;border:1px solid rgba(255,255,255,.92);border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,248,242,.42));color:inherit;font-family:var(--sans);cursor:pointer;
+  box-shadow:0 15px 34px -30px rgba(125,91,74,.56),inset 0 1px 0 rgba(255,255,255,.86);
+  text-align:center;backdrop-filter:blur(18px) saturate(148%);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.growth-node-button:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--node-color,#e88468) 24%,white);
+  box-shadow:0 20px 38px -26px color-mix(in srgb,var(--node-color,#e88468) 58%,rgba(90,65,54,.32)),inset 0 1px 0 rgba(255,255,255,.98)}
+.growth-node-button:hover .growth-node-copy{color:var(--primary)}
+.growth-node-button:active{transform:scale(.985)}
+.growth-node-meta{display:flex;width:100%;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;margin:0 0 7px;color:#918985;font-size:10.9px;line-height:1.35;letter-spacing:.025em}
+.growth-node-kind{color:var(--node-color,#e88468);font-weight:700;text-align:left}
+.growth-node-meta time{margin-left:auto;white-space:nowrap;text-align:right}
+.growth-node-copy{display:block;width:100%;font-family:var(--serif);font-size:clamp(12px,3.28vw,13.6px);font-weight:400;line-height:1.85;letter-spacing:.035em;color:#302c2a;
+  text-align:left;white-space:normal;word-break:normal;overflow-wrap:break-word;transition:color .2s ease}
+.growth-trail-node.hide{display:none}
+.growth-record-reveal{opacity:0;transform:translateY(10px)}
+.growth-record-reveal.on{animation:growthRecordReveal .42s var(--ease-smooth) forwards}
+@keyframes growthNodeIn{from{opacity:0;transform:translateY(32px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes growthRecordReveal{to{opacity:1;transform:translateY(0)}}
+.growth-interaction-media.practice img,.growth-interaction-media.reading img{aspect-ratio:4/3;object-fit:cover}
+.growth-interaction-media.practice,.growth-interaction-media.reading{grid-template-columns:1fr}
 .growth-card.hide{display:none}
 .growth-day.hide{display:none}
 .growth-frequency-word{position:absolute;left:12px;bottom:9px;font-family:var(--serif);font-size:17px;font-weight:700;color:#5f7456;line-height:1;
@@ -3504,270 +3848,137 @@ html[lang="en"] :is(#ov-sleep-report,#ov-activity,#ov-heartrate,#ov-stress,#ov-s
               </button>
               <div class="sr-toptitle-wrap">
                 <div class="sr-toptitle" data-i18n-zh="互动" data-i18n-en="Talk">互动</div>
-                <div class="consultant-agent-presence"><i></i>LOOOVE 在线 · 戒指数据已同步</div>
+                <div class="consultant-agent-presence"><i></i><span data-i18n-zh="LOOOVE 正在读取此刻" data-i18n-en="LOOOVE is reading this moment">LOOOVE 正在读取此刻</span></div>
               </div>
-              <button class="consultant-search-btn" type="button" aria-label="搜索互动记录">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M14.5 14.5L19 19"/></svg>
+              <button class="proactive-search-btn" type="button" onclick="LOOOVEInteraction.toggleSearch()" aria-label="搜索互动内容" aria-controls="proactiveSearchPanel" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
               </button>
             </div>
-            <div class="home-awareness-placeholder-body consultant-agent-body" aria-label="LOOOVE 互动区">
-              <main class="consultant-agent-feed" id="consultantAgentFeed" aria-live="polite">
-                <div class="consultant-day-marker"><span>6月11日 · 星期四</span></div>
-                <article class="consultant-agent-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>07:30</time>
-                  </div>
-                  <section class="consultant-dispatch-card consultant-morning-report">
-                    <div class="consultant-report-kicker">早间报告</div>
-                    <h2 class="consultant-report-title">今晨恢复偏慢，适合从容启动。</h2>
-
-                    <div class="consultant-report-dashboard" aria-label="今晨身体状态仪表盘">
-                      <div class="consultant-primary-metrics">
-                        <div class="consultant-primary-metric"><div class="consultant-data-label">Loooveness</div><div class="consultant-primary-value">56</div></div>
-                        <div class="consultant-primary-metric"><div class="consultant-data-label">睡眠</div><div class="consultant-primary-value">6小时42分</div></div>
-                      </div>
-                      <div class="consultant-secondary-metrics">
-                        <div class="consultant-secondary-metric"><div class="consultant-data-label">HRV</div><div class="consultant-secondary-value">32<small>ms</small></div></div>
-                        <div class="consultant-secondary-metric"><div class="consultant-data-label">静息心率</div><div class="consultant-secondary-value">70<small>bpm</small></div></div>
-                        <div class="consultant-secondary-metric"><div class="consultant-data-label">压力</div><div class="consultant-secondary-value">3.3<small>/ 5</small></div></div>
-                      </div>
-                    </div>
-
-                    <p class="consultant-report-insight">昨夜恢复低于近期水平。上午先做熟悉的事，把需要判断的任务留到状态打开之后。</p>
-                  </section>
-                </article>
-
-                <div class="consultant-user-row">
-                  <div class="consultant-user-wrap">
-                    <div class="consultant-user-name">我 · 10:18</div>
-                    <div class="consultant-user-bubble">我最近压力好大</div>
-                  </div>
-                </div>
-
-                <article class="consultant-agent-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>10:19</time>
-                  </div>
-                  <section class="consultant-analysis-card">
-                    <div class="consultant-evidence">
-                      <div class="consultant-evidence-item"><b class="consultant-section-label">声音线索</b><span>最近的录音中，你们围绕需求排期与实现边界产生了争辩；过程中，你的语速明显加快，语气里也流露出被压抑的愤怒。</span></div>
-                      <div class="consultant-evidence-item"><b class="consultant-section-label">身体数据</b><span>会议后紧张感持续，HRV 低于个人基线，情绪压力保持在高位。</span></div>
-                    </div>
-                    <div class="consultant-hypothesis">
-                      <div class="consultant-hypothesis-label consultant-section-label">推测</div>
-                      <p>你在会议中提出需求后，被开发直接反驳，双方争辩了几句。虽然会议已经结束，但那股被顶回来的恼火，还是继续留在身体里。</p>
-                    </div>
-                    <div class="consultant-intervention-board">
-                      <div class="consultant-intervention-title consultant-section-label">推荐</div>
-                      <blockquote class="consultant-mantra-card">
-                        <div class="consultant-mantra-kicker">今日心法</div>
-                        <p>方案被反对，不等于能力被否定。</p>
-                        <footer>带走有用的信息，允许自己有情绪；<br>等愤怒过去，再决定什么值得回应。</footer>
-                      </blockquote>
-                    </div>
-                  </section>
-                </article>
-
-                <article class="consultant-agent-message consultant-proactive-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>23:47</time>
-                  </div>
-                  <section class="consultant-proactive-card" aria-label="LOOOVE 深夜主动关心">
-                    <div class="consultant-proactive-kicker">深夜关心</div>
-                    <h2 class="consultant-proactive-title">身体还没有进入休息。</h2>
-                    <p class="consultant-proactive-copy">已经很晚了，你还没有入睡，Loooveness 降至 41。我为你生成了一段音乐，陪你度过这段仍然清醒的时间。</p>
-                    <button class="consultant-sleep-music-button" id="consultantSleepMusicButton" onclick="toggleConsultantSleepMusic(this)" aria-pressed="false" aria-label="播放专属助眠音乐《慢慢落下来》">
-                      <span class="consultant-sleep-play" aria-hidden="true">
-                        <span class="consultant-sleep-wave"><i></i><i></i><i></i><i></i><i></i></span>
-                      </span>
-                      <span class="consultant-sleep-music-copy">
-                        <span class="consultant-sleep-music-label">专属助眠音乐</span>
-                        <span class="consultant-sleep-music-name">慢慢落下来</span>
-                      </span>
-                    </button>
-                  </section>
-                </article>
-
-                <div class="consultant-day-marker"><span>6月12日 · 星期五</span></div>
-                <div class="consultant-user-row consultant-restless-user">
-                  <div class="consultant-user-wrap">
-                    <div class="consultant-user-name">我 · 14:08</div>
-                    <div class="consultant-user-bubble">我有点烦躁</div>
-                  </div>
-                </div>
-
-                <article class="consultant-agent-message consultant-restless-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>14:09</time>
-                  </div>
-                  <section class="consultant-analysis-card consultant-restless-card">
-                    <div class="consultant-evidence">
-                      <div class="consultant-evidence-item"><b class="consultant-section-label">声音线索</b><span>最近的录音里没有出现明显冲突或反复提及的困扰，语速、语气都接近平时。</span></div>
-                      <div class="consultant-evidence-item"><b class="consultant-section-label">身体数据</b><span>HRV 39ms、静息心率 68bpm，压力曲线处在个人正常范围，身体没有明显负荷升高。</span></div>
-                    </div>
-                    <div class="consultant-hypothesis">
-                      <div class="consultant-hypothesis-label consultant-section-label">推测</div>
-                      <p>这次烦躁更像是注意力积累了一点噪音，不一定对应某件具体的事。</p>
-                    </div>
-                    <div class="consultant-intervention-board">
-                      <div class="consultant-intervention-title consultant-section-label">推荐</div>
-                      <button class="consultant-breath-line-preview" onclick="openMindDrawing('consultant')" aria-label="开始跟着呼吸画线">
-                        <span class="consultant-breath-line-thumb" aria-hidden="true"><img src="./呼吸画线.jpg" alt="跟着呼吸画线"></span>
-                        <span class="consultant-breath-line-copy">
-                          <span class="consultant-breath-line-label" id="consultantBreathLineLabel">绘画疗愈</span>
-                          <span class="consultant-breath-line-title">跟着呼吸画线</span>
-                        </span>
-                      </button>
-                    </div>
-                  </section>
-                </article>
-
-                <div class="consultant-user-row consultant-drawing-user">
-                  <div class="consultant-user-wrap">
-                    <div class="consultant-user-name">我 · 14:15</div>
-                    <figure class="consultant-drawing-bubble">
-                      <img src="./呼吸画线.jpg" alt="我完成的呼吸画线作品">
-                      <figcaption>呼吸画线 · 已完成</figcaption>
-                    </figure>
-                  </div>
-                </div>
-
-                <article class="consultant-agent-message consultant-breath-feedback-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>14:16</time>
-                  </div>
-                  <section class="consultant-breath-feedback-card" aria-label="调息后的身体变化">
-                    <div class="consultant-breath-feedback-kicker">反馈</div>
-                    <h3>身体开始松开了。</h3>
-                    <p>心率从 68 降至 64 bpm，HRV 从 39 回升到 43 ms；呼吸节律逐渐放慢，压力曲线也开始回落。</p>
-                  </section>
-                </article>
-
-                <article class="consultant-agent-message consultant-taste-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>16:40</time>
-                  </div>
-                  <section class="consultant-taste-card" aria-label="LOOOVE 主动探索尝试">
-                    <p class="consultant-taste-signal">刚才的声音与身体数据都没有明显异常，但体表温度已连续 40 分钟高于个人午后基线 0.4°C。此刻的烦躁更像轻微燥热与感官疲劳。</p>
-                    <div class="consultant-taste-practice">
-                      <div class="consultant-taste-kicker">探索尝试</div>
-                      <div class="consultant-taste-recommendation">
-                        <h3>舌尖上的正念</h3>
-                        <p>慢煮一壶绿豆汤、酸梅汤，或自制水果冰棒、冰冻葡萄，专注感受冰凉在口腔化开的清甜，用味觉的“微凉”抵消体感的燥热。</p>
-                      </div>
-                    </div>
-                  </section>
-                </article>
-
-                <div class="consultant-user-row consultant-clarity-user">
-                  <div class="consultant-user-wrap">
-                    <div class="consultant-user-name">我 · 21:16</div>
-                    <div class="consultant-user-bubble">我最近有点迷茫</div>
-                  </div>
-                </div>
-
-                <article class="consultant-agent-message consultant-clarity-message">
-                  <div class="consultant-agent-meta">
-                    <span class="consultant-agent-avatar" aria-hidden="true">
-                      <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.6"/></svg>
-                    </span>
-                    <b>LOOOVE</b><time>21:17</time>
-                  </div>
-                  <section class="consultant-analysis-card consultant-clarity-card">
-                    <div class="consultant-evidence">
-                      <div class="consultant-evidence-item"><b class="consultant-section-label">声音线索</b><span>最近的录音里，你反复提到“换个环境”“看看新的机会”，已经开始认真考虑跳槽；与对象的几段对话里也出现了争执和长时间停顿。</span></div>
-                      <div class="consultant-evidence-item"><b class="consultant-section-label">身体数据</b><span>过去 7 天，HRV 连续低于个人基线，压力高位持续时间变长，睡眠恢复也在下降。</span></div>
-                    </div>
-                    <div class="consultant-hypothesis">
-                      <div class="consultant-hypothesis-label consultant-section-label">推测</div>
-                      <p>工作去留和亲密关系同时需要你做判断，迷茫更像是选择力被多重压力占满了。</p>
-                    </div>
-                    <div class="consultant-intervention-board">
-                      <div class="consultant-intervention-title consultant-section-label">推荐</div>
-                      <button class="consultant-card-draw-preview" onclick="openReflectionDeck()" aria-label="打开潜意识探索">
-                        <span class="consultant-card-draw-mini" aria-hidden="true"><img src="./抽卡/背面.png" alt=""></span>
-                        <span class="consultant-card-draw-copy">
-                          <span class="consultant-card-draw-label">潜意识探索</span>
-                          <span class="consultant-card-draw-title">抽取卡牌，探索内心</span>
-                        </span>
-                      </button>
-                    </div>
-                  </section>
-                </article>
-
-              </main>
-
-              <div class="consultant-agent-composer">
-                <button type="button" class="consultant-voice-btn" id="consultantVoiceBtn" onclick="consultantVoiceInput()" aria-label="语音输入">
-                  <svg viewBox="0 0 20 20"><rect x="7" y="2" width="6" height="10" rx="3"/><path d="M4 9a6 6 0 0 0 12 0M10 15v3M7 18h6"/></svg>
+            <form class="proactive-search-panel" id="proactiveSearchPanel" role="search" onsubmit="return LOOOVEInteraction.submitSearch(event)" autocomplete="off" aria-hidden="true">
+              <svg class="proactive-search-leading" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg>
+              <input id="proactiveSearchInput" type="search" placeholder="搜索互动内容" aria-label="搜索互动内容">
+              <span class="proactive-search-status" id="proactiveSearchStatus" aria-live="polite"></span>
+              <button class="proactive-search-next" type="submit" aria-label="下一个搜索结果">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg>
+              </button>
+              <button class="proactive-search-close" type="button" onclick="LOOOVEInteraction.closeSearch()" aria-label="关闭搜索">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+              </button>
+            </form>
+            <div class="proactive-simulation-toast" id="proactiveSimulationToast" role="status" aria-live="polite"></div>
+            <div class="home-awareness-placeholder-body proactive-body" aria-label="LOOOVE 主动互动区">
+              <main class="proactive-feed" id="loooveProactiveFeed" aria-live="polite" aria-label="AI 动态简报"></main>
+            </div>
+            <form class="proactive-message-composer proactive-main-composer" id="proactiveMainComposer" onsubmit="return LOOOVEInteraction.submitMainConversation(event)" autocomplete="off">
+              <span class="proactive-composer-mic" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg>
+              </span>
+              <span class="proactive-composer-field">
+                <input id="proactiveMainInput" type="text" placeholder="来和LOOOVE分享此刻的心事吧~" aria-label="来和LOOOVE分享此刻的心事吧~">
+                <button class="proactive-composer-send" id="proactiveMainSend" type="submit" aria-label="发送消息">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-6.7 18-3.1-7.2L4 10.7 21 3Z"/><path d="m11.2 13.8 4.1-4.1"/></svg>
                 </button>
-                <div class="consultant-agent-input-wrap">
-                  <input class="consultant-agent-input" id="consultantAgentInput" placeholder="来和LOOOVE分享此刻的心事吧~" onkeydown="if(event.key==='Enter')sendConsultantMessage()">
-                  <button class="consultant-send-btn" onclick="sendConsultantMessage()" aria-label="发送消息">
-                    <svg viewBox="0 0 20 20"><path d="m4 10 12-6-4 12-2.5-4.5L4 10Z"/><path d="M9.5 11.5 16 4"/></svg>
+              </span>
+            </form>
+            <section class="practice-video-screen" id="practiceVideoScreen" aria-hidden="true" aria-label="运动教学视频">
+              <header class="practice-video-topbar">
+                <button class="practice-video-close" type="button" onclick="LOOOVEInteraction.closePracticeVideo()" aria-label="返回互动">‹</button>
+                <h2 id="practiceVideoHeader">教学视频</h2>
+                <span aria-hidden="true"></span>
+              </header>
+              <div class="practice-video-body">
+                <div class="practice-video-player" id="practiceVideoPlayer">
+                  <img id="practiceVideoImage" src="./assets/互动/baduanjin-sequence.png" alt="八段锦教学动作">
+                  <button class="practice-video-play" id="practiceVideoPlay" type="button" onclick="LOOOVEInteraction.togglePracticeVideo()" aria-label="暂停教学视频"></button>
+                  <button class="practice-video-fullscreen" id="practiceVideoFullscreen" type="button" onclick="LOOOVEInteraction.togglePracticeFullscreen()" aria-label="全屏播放" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
                   </button>
+                  <div class="practice-video-timeline">
+                    <div class="practice-video-track"><i id="practiceVideoProgress"></i></div>
+                    <div class="practice-video-time"><span id="practiceVideoElapsed">00:00</span><span id="practiceVideoDuration">08:00</span></div>
+                  </div>
+                </div>
+                <div class="practice-video-copy">
+                  <h3 id="practiceVideoTitle">八段锦 · 轻量版</h3>
+                  <p id="practiceVideoMeta">8–12 分钟 · 四段动作教学</p>
+                </div>
+                <div class="practice-video-step">
+                  <span id="practiceVideoStepIndex">动作 1 / 4</span>
+                  <b id="practiceVideoStepTitle">预备式 · 调整站姿</b>
+                  <div class="practice-video-dots" id="practiceVideoDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
                 </div>
               </div>
-            </div>
-
-            <div class="consultant-reflection-modal" id="consultantReflectionModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="consultantReflectionTitle">
-              <section class="consultant-reflection-sheet">
-                <div class="consultant-reflection-header">
-                  <span>LOOOVE · 潜意识探索</span>
-                  <button class="consultant-reflection-close" onclick="closeReflectionDeck()" aria-label="关闭抽卡">×</button>
+            </section>
+            <section class="proactive-detail-screen" id="proactiveArtScreen" aria-hidden="true" aria-label="艺术展">
+              <header class="practice-video-topbar">
+                <button class="practice-video-close proactive-detail-back" type="button" onclick="LOOOVEInteraction.closeSupportPage()" aria-label="返回互动">‹</button>
+                <h2 id="proactiveArtPageHeader">艺术展</h2>
+                <span aria-hidden="true"></span>
+              </header>
+              <div class="proactive-detail-body">
+                <div class="proactive-art-page-visual"><img src="./assets/互动/art-reset-exhibition.png" alt="柔和彩色的当代美术馆空间与女性倒影"></div>
+                <h3 id="proactiveArtPageTitle">世界上的另一个我</h3>
+                <p class="proactive-art-page-intro" id="proactiveArtPageIntro">这是一次以镜像、空间与自我观看为线索的当代艺术体验。你可以不急着理解作品，只留意哪一处颜色、光线或倒影让你停下来。</p>
+                <div class="proactive-art-page-address">
+                  <span id="proactiveArtPageAddressLabel">地址</span>
+                  <strong id="proactiveArtPageAddress">浦东美术馆 · 上海市浦东新区滨江大道 2777 号</strong>
+                  <a class="proactive-art-page-navigation" href="https://uri.amap.com/search?keyword=%E6%B5%A6%E4%B8%9C%E7%BE%8E%E6%9C%AF%E9%A6%86" target="_blank" rel="noopener noreferrer" aria-label="导航到浦东美术馆">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10.6 20 4l-6.6 15.5-2.2-6.7-6.7-2.2Z"/><path d="m11.2 12.8 3.7-3.7"/></svg>
+                  </a>
                 </div>
-                <div class="consultant-reflection-progress" aria-hidden="true"><i class="on"></i><i></i></div>
-
-                <div class="consultant-reflection-stage on" data-reflection-stage="deck">
-                  <h2 class="consultant-reflection-instruction" id="consultantReflectionTitle">凭第一感觉抽取 3 张。</h2>
-                  <button class="consultant-deck" onclick="drawReflectionCard()" aria-label="抽三张潜意识探索卡">
-                    <span class="consultant-deck-face"><img src="./抽卡/背面.png" alt="卡牌背面"></span>
+              </div>
+            </section>
+            <section class="proactive-detail-screen" id="proactiveConversationScreen" aria-hidden="true" aria-label="深度对话">
+              <header class="practice-video-topbar">
+                <button class="practice-video-close proactive-detail-back" type="button" onclick="LOOOVEInteraction.closeSupportPage()" aria-label="返回互动">‹</button>
+                <h2 id="proactiveConversationPageHeader">深度对话</h2>
+                <span aria-hidden="true"></span>
+              </header>
+              <div class="proactive-detail-body proactive-conversation-body">
+                <div class="proactive-deep-thread" id="proactiveDeepThread" aria-live="polite"></div>
+              </div>
+              <form class="proactive-message-composer proactive-deep-composer" id="proactiveDeepComposer" onsubmit="return LOOOVEInteraction.submitDeepConversation(event)" autocomplete="off">
+                <span class="proactive-composer-mic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg>
+                </span>
+                <span class="proactive-composer-field">
+                  <input id="proactiveDeepInput" type="text" placeholder="来和LOOOVE分享此刻的心事吧~" aria-label="来和LOOOVE分享此刻的心事吧~">
+                  <button class="proactive-composer-send" id="proactiveDeepSend" type="submit" aria-label="发送消息">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-6.7 18-3.1-7.2L4 10.7 21 3Z"/><path d="m11.2 13.8 4.1-4.1"/></svg>
                   </button>
-                  <button class="consultant-reflection-primary" onclick="drawReflectionCard()">抽 3 张</button>
+                </span>
+              </form>
+            </section>
+            <section class="proactive-detail-screen" id="proactiveFoodScreen" aria-hidden="true" aria-label="饮食建议">
+              <header class="practice-video-topbar">
+                <button class="practice-video-close proactive-detail-back" type="button" onclick="LOOOVEInteraction.closeFoodPage()" aria-label="返回互动">‹</button>
+                <h2 id="proactiveFoodPageHeader">今天怎么吃</h2>
+                <span aria-hidden="true"></span>
+              </header>
+              <div class="proactive-detail-body">
+                <div class="proactive-food-page-visual"><img id="proactiveFoodImage" src="./assets/互动/food-mung-bean-lily.png" alt="绿豆百合小碗"></div>
+                <h3 id="proactiveFoodPageTitle">绿豆百合小碗</h3>
+                <div class="proactive-food-steps">
+                  <b id="proactiveFoodStepsLabel">简单做法</b>
+                  <ol id="proactiveFoodSteps"></ol>
                 </div>
-
-                <div class="consultant-reflection-stage" data-reflection-stage="reflect">
-                  <div class="consultant-reflection-cards" id="consultantReflectionCards" aria-label="抽到的三张潜意识探索卡">
-                    <figure class="consultant-reflection-card"><img src="./抽卡/28.png" alt="第一张水彩卡牌"></figure>
-                    <figure class="consultant-reflection-card"><img src="./抽卡/31.png" alt="第二张水彩卡牌"></figure>
-                    <figure class="consultant-reflection-card"><img src="./抽卡/36.png" alt="第三张水彩卡牌"></figure>
-                  </div>
-                  <form class="consultant-reflection-form" onsubmit="event.preventDefault();submitReflectionCard()">
-                    <label class="consultant-reflection-question">三张图里，哪一张最吸引你？
-                      <textarea id="reflectionAttraction" aria-label="三张图里，哪一张最吸引你？"></textarea>
-                    </label>
-                    <label class="consultant-reflection-question">它让你想到了最近发生的什么？
-                      <textarea id="reflectionAssociation" aria-label="它让你想到了最近发生的什么？"></textarea>
-                    </label>
-                    <label class="consultant-reflection-question">如果三张图连成一个故事，故事正在走向哪里？
-                      <textarea id="reflectionDirection" aria-label="如果三张图连成一个故事，故事正在走向哪里？"></textarea>
-                    </label>
-                    <div class="consultant-reflection-error" id="consultantReflectionError" role="status"></div>
-                    <button class="consultant-reflection-primary" id="consultantReflectionSubmit" type="button" onclick="submitReflectionCard()">完成并发送给 LOOOVE</button>
-                  </form>
-                </div>
-              </section>
-            </div>
+              </div>
+            </section>
+            <section class="proactive-detail-screen" id="proactiveResourceScreen" aria-hidden="true" aria-label="推荐详情">
+              <header class="practice-video-topbar">
+                <button class="practice-video-close proactive-detail-back" type="button" onclick="LOOOVEInteraction.closeResourcePage()" aria-label="返回互动">‹</button>
+                <h2 id="proactiveResourceHeader">推荐详情</h2>
+                <span aria-hidden="true"></span>
+              </header>
+              <div class="proactive-detail-body proactive-resource-body">
+                <div class="proactive-resource-visual"><img id="proactiveResourceImage" src="./assets/互动/night-music-spiegel.png" alt="夜间音乐"></div>
+                <h3 class="proactive-resource-title" id="proactiveResourceTitle">Spiegel im Spiegel</h3>
+                <p class="proactive-resource-meta" id="proactiveResourceMeta">Arvo Pärt · 约 9 分钟</p>
+                <p class="proactive-resource-intro" id="proactiveResourceIntro">没有歌词和明显鼓点。先听一遍，让注意力慢慢离开仍在运转的思绪，不要求自己立刻睡着。</p>
+                <button class="proactive-resource-action" id="proactiveResourceAction" type="button" onclick="LOOOVEInteraction.activateResource()">播放音乐</button>
+              </div>
+            </section>
           </div>
-
           <div class="home-state-screen" id="homeBodyState">
             <div class="sr-topbar">
               <button class="sr-back" onclick="closeHomeBodyState()" aria-label="返回">
@@ -4308,83 +4519,10 @@ html[lang="en"] :is(#ov-sleep-report,#ov-activity,#ov-heartrate,#ov-stress,#ov-s
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg>
               </button>
             </div>
-            <div class="growth-line" id="growthTrail">
-              <div class="growth-thread"></div>
-              <div class="growth-day"><span>6月12日 · 今天</span></div>
-              <article class="growth-card left" data-growth="highlight" onclick="openGrowthRecord('lifeHighlight')">
-                <div class="growth-card-top"><div class="growth-kind kind-highlight">高光</div><time>19:26</time></div>
-                <div class="growth-title">和朋友散步时，你说了真话，也被温柔接住。</div>
-                <div class="growth-signal-preview">
-                  <p><b>声音</b><span>笑声变多，说到害怕时也没有绕开</span></p>
-                  <p><b>身体</b><span>HRV 45ms · 压力 1.9</span></p>
-                </div>
-                <div class="growth-summary-line">你没有只做那个可靠的人，也允许自己被关心。</div>
-              </article>
-              <article class="growth-card right" data-growth="low" onclick="openGrowthRecord('lifeLow')">
-                <div class="growth-card-top"><div class="growth-kind kind-low">波动</div><time>17:08</time></div>
-                <div class="growth-title">期待了一周的见面临时取消，你一个人回了家。</div>
-                <div class="growth-signal-preview">
-                  <p><b>声音</b><span>连续说了三次“没关系”，随后沉默很久</span></p>
-                  <p><b>身体</b><span>HRV 31ms · 压力 3.8</span></p>
-                </div>
-                <div class="growth-summary-line">你很快照顾了对方，却把自己的失落留在了身体里。</div>
-              </article>
-              <article class="growth-card left" data-growth="highlight" onclick="openGrowthRecord('signalHighlight')">
-                <div class="growth-card-top"><div class="growth-kind kind-highlight">高光</div><time>15:40</time></div>
-                <div class="growth-title">在评审里，把自己的判断说清楚了。</div>
-                <div class="growth-signal-preview">
-                  <p><b>声音</b><span>语速平稳，关键处停顿更清楚</span></p>
-                  <p><b>身体</b><span>HRV 41ms · 压力 2.6</span></p>
-                </div>
-                <div class="growth-summary-line">你没有回避分歧，也没有被分歧带走。</div>
-              </article>
-              <article class="growth-card right" data-growth="interaction" onclick="openGrowthRecord('drawingBreath')">
-                <div class="growth-card-top"><div class="growth-kind kind-interaction">互动·绘画</div><time>14:16</time></div>
-                <div class="growth-title">烦躁慢慢退下去了。</div>
-                <div class="growth-interaction-media painting"><img src="./呼吸画线.jpg" alt="完成的呼吸画线作品"></div>
-                <div class="growth-interaction-journey">
-                  <p><b>你</b><span>我有点烦躁。</span></p>
-                  <p><b>结果</b><span>身体开始松开了。</span></p>
-                </div>
-              </article>
-              <article class="growth-card right" data-growth="report" onclick="openGrowthRecord('weeklyReport')">
-                <div class="growth-card-top"><div class="growth-kind kind-report">周报告</div><time>12:00</time></div>
-                <div class="growth-title">恢复波动正在收窄。</div>
-                <div class="growth-report-brief"><span>Loooveness 均值 <b>58</b></span><span>有效记录 <b>5 次</b></span></div>
-              </article>
-              <div class="growth-day"><span>6月11日 · 昨天</span></div>
-              <article class="growth-card right" data-growth="interaction" onclick="openGrowthRecord('cardReflection')">
-                <div class="growth-card-top"><div class="growth-kind kind-interaction">互动·抽卡</div><time>21:17</time></div>
-                <div class="growth-title">当两种生活同时拉扯你。</div>
-                <div class="growth-interaction-media cards">
-                  <img src="./抽卡/28.png" alt="抽取的卡牌一"><img src="./抽卡/31.png" alt="抽取的卡牌二"><img src="./抽卡/36.png" alt="抽取的卡牌三">
-                </div>
-                <div class="growth-interaction-journey">
-                  <p><b>你</b><span>我最近有点迷茫。</span></p>
-                  <p><b>结果</b><span>先看工作机会，关系等状态稳定后再谈</span></p>
-                </div>
-              </article>
-              <article class="growth-card left compact" data-growth="interaction" onclick="openGrowthRecord('mantraMoment')">
-                <div class="growth-card-top"><div class="growth-kind kind-interaction">互动·心法</div><time>10:22</time></div>
-                <div class="growth-title">方案被反对，不等于能力被否定。</div>
-                <div class="growth-interaction-journey">
-                  <p><b>你</b><span>我最近压力好大。</span></p>
-                </div>
-              </article>
-              <article class="growth-card left" data-growth="low" onclick="openGrowthRecord('signalLow')">
-                <div class="growth-card-top"><div class="growth-kind kind-low">波动</div><time>10:19</time></div>
-                <div class="growth-title">会议结束了，恼火还留在身体里。</div>
-                <div class="growth-signal-preview">
-                  <p><b>声音</b><span>围绕需求排期发生争辩，语速明显加快</span></p>
-                  <p><b>身体</b><span>HRV 29ms · 压力 4.1</span></p>
-                </div>
-                <div class="growth-summary-line">被直接反驳后，你还在替那场争辩消耗能量。</div>
-              </article>
-              <article class="growth-card left" data-growth="report" onclick="openGrowthRecord('morningReport')">
-                <div class="growth-card-top"><div class="growth-kind kind-report">早间报告</div><time>07:30</time></div>
-                <div class="growth-title">今晨恢复偏慢，适合从容启动。</div>
-                <div class="growth-report-brief"><span>Loooveness <b>56</b></span><span>睡眠 <b>6h42m</b></span></div>
-              </article>
+            <div class="growth-list-scroll" id="growthListScroll">
+              <div class="growth-line" id="growthTrail" aria-live="polite">
+                <span class="growth-spine" aria-hidden="true"></span>
+              </div>
             </div>
             <!-- Demo 暂时隐藏：勋章与 AI 洞察入口
             <button class="growth-badge-float" onclick="openTrajectoryBadges()" aria-label="勋章墙" title="勋章墙">
@@ -7116,6 +7254,40 @@ const I18n={
   }
 };
 
+Object.assign(I18n.exact,{
+  '6月14日 · 21:18':'June 14 · 21:18',
+  '6月14日 · 18:42':'June 14 · 18:42',
+  '6月13日 · 16:24':'June 13 · 16:24',
+  '6月13日 · 10:19':'June 13 · 10:19',
+  '6月12日 · 20:00':'June 12 · 20:00',
+  '6月12日 · 18:42':'June 12 · 18:42',
+  '6月12日 · 15:40':'June 12 · 15:40',
+  '6月12日 · 16:24':'June 12 · 16:24',
+  '6月11日 · 21:17':'June 11 · 21:17',
+  '6月11日 · 17:08':'June 11 · 17:08',
+  '6月11日 · 07:44':'June 11 · 07:44',
+  '6月11日 · 07:30':'June 11 · 07:30',
+  '读完《设计你的人生》，上传了读书笔记。':'Finished Designing Your Life and uploaded reading notes.',
+  '完成一次深度对话，理清了思绪。':'Completed a deep conversation and clarified your thoughts.',
+  '完成 8 分钟八段锦练习。':'Completed eight minutes of Baduanjin.',
+  '完成一次卡牌潜意识探索。':'Completed an intuitive card exploration.',
+  '完成一次绘画疗愈。':'Completed a therapeutic drawing practice.',
+  '在评审中，清楚表达了自己的判断。':'Expressed your judgment clearly in the review.',
+  '会议结束后，压力仍停留在身体里。':'After the meeting, stress remained in your body.',
+  'LOOOVE 推送了本周身心复盘报告。':'LOOOVE shared your weekly mind-body review.',
+  '和朋友散步时，说了真话，也被温柔接住。':'During a walk with a friend, you spoke honestly and were met with warmth.',
+  '见面临时取消，把失落留在了身体里。':'A last-minute cancellation left disappointment lingering in your body.',
+  'LOOOVE 推送了今晨恢复报告。':'LOOOVE shared this morning\'s recovery report.',
+  '读书笔记':'Reading notes',
+  '深度对话':'Deep conversation',
+  '八段锦练习':'Baduanjin practice',
+  '周复盘报告':'Weekly review',
+  '你的读书笔记':'Your reading notes',
+  '你的觉察':'Your insight',
+  '练习记录':'Practice record',
+});
+
+
 /* English-only build: runtime language switching disabled.
 function setDemoLanguage(lang,button){
   I18n.setLanguage(lang);
@@ -7204,7 +7376,8 @@ function switchTab(id){
   document.querySelector('.app')?.classList.toggle('home-visual',id==='t-home');
   updateHomeOrbitGather();
   if(id==='t-space')drawChart();
-  if(id==='t-diary')renderDiary();
+  if(id==='t-diary')GrowthTrail.start();
+  else GrowthTrail.stop();
 }
 function openTrajectoryBadges(){
   Audio$.soft();
@@ -7230,26 +7403,112 @@ function closeTrajectoryReview(){
   Audio$.soft();
   document.getElementById('trajectoryReviewScreen')?.classList.remove('on');
 }
+const GROWTH_TRAIL_ITEMS=[
+  {key:'bookReflection',type:'interaction',kind:'互动',date:'6月14日 · 21:18',brief:'读完《设计你的人生》，上传了读书笔记。',side:'left'},
+  {key:'signalHighlight',type:'highlight',kind:'高光',date:'6月14日 · 18:42',brief:'在评审中，清楚表达了自己的判断。',side:'right'},
+  {key:'deepConversation',type:'interaction',kind:'互动',date:'6月13日 · 16:24',brief:'完成一次深度对话，理清了思绪。',side:'left'},
+  {key:'signalLow',type:'low',kind:'波动',date:'6月13日 · 10:19',brief:'会议结束后，压力仍停留在身体里。',side:'right'},
+  {key:'weeklyReport',type:'report',kind:'报告',date:'6月12日 · 20:00',brief:'LOOOVE 推送了本周身心复盘报告。',side:'left'},
+  {key:'drawingBreath',type:'interaction',kind:'互动',date:'6月12日 · 18:42',brief:'完成一次绘画疗愈。',side:'right'},
+  {key:'lifeHighlight',type:'highlight',kind:'高光',date:'6月12日 · 15:40',brief:'和朋友散步时，说了真话，也被温柔接住。',side:'left'},
+  {key:'cardReflection',type:'interaction',kind:'互动',date:'6月11日 · 21:17',brief:'完成一次卡牌潜意识探索。',side:'right'},
+  {key:'lifeLow',type:'low',kind:'波动',date:'6月11日 · 17:08',brief:'见面临时取消，把失落留在了身体里。',side:'left'},
+  {key:'baduanjinPractice',type:'interaction',kind:'互动',date:'6月11日 · 07:44',brief:'完成 8 分钟八段锦练习。',side:'right'},
+  {key:'morningReport',type:'report',kind:'报告',date:'6月11日 · 07:30',brief:'LOOOVE 推送了今晨恢复报告。',side:'left'}
+];
+const GrowthTrail={
+  interval:780,
+  timer:null,
+  index:0,
+  filter:'all',
+  stop(){
+    clearTimeout(this.timer);
+    this.timer=null;
+  },
+  delay(ms){
+    return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?35:ms;
+  },
+  start(){
+    this.stop();
+    const trail=document.getElementById('growthTrail');
+    if(!trail)return;
+    trail.querySelectorAll('.growth-trail-node').forEach(node=>node.remove());
+    this.index=GROWTH_TRAIL_ITEMS.length-1;
+    this.filter=document.querySelector('.growth-tab.on')?.dataset.growth||'all';
+    const page=document.getElementById('growthListScroll');
+    if(page)page.scrollTop=0;
+    this.timer=setTimeout(()=>this.renderNext(),this.delay(240));
+  },
+  nodeMarkup(item,index){
+    const hidden=this.filter!=='all'&&this.filter!==item.type?' hide':'';
+    return `<article class="growth-trail-node${hidden}" data-growth="${item.type}" data-index="${index}">
+      <button class="growth-node-button" type="button" onclick="openGrowthRecord('${item.key}')" aria-label="${esc(item.brief)}">
+        <span class="growth-node-meta"><span class="growth-node-kind">${esc(item.kind)}</span><time>${esc(item.date)}</time></span>
+        <span class="growth-node-copy">${esc(item.brief)}</span>
+      </button>
+    </article>`;
+  },
+  renderNext(){
+    const trail=document.getElementById('growthTrail');
+    if(!trail||this.index<0)return;
+    const item=GROWTH_TRAIL_ITEMS[this.index];
+    trail.insertAdjacentHTML('afterbegin',this.nodeMarkup(item,this.index));
+    const node=trail.querySelector('.growth-trail-node');
+    this.index-=1;
+    renderIcons(node);
+    this.keepNewestVisible(node);
+    this.timer=setTimeout(()=>this.renderNext(),this.delay(this.interval));
+  },
+  keepNewestVisible(node){
+    const page=document.getElementById('growthListScroll');
+    if(!page||!node)return;
+    const behavior=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+    requestAnimationFrame(()=>page.scrollTo({top:0,behavior}));
+  },
+  setFilter(type){
+    this.filter=type;
+    document.querySelectorAll('.growth-trail-node').forEach(node=>{
+      node.classList.toggle('hide',type!=='all'&&node.dataset.growth!==type);
+    });
+  }
+};
 function filterGrowthTrail(btn){
   Audio$.soft();
   document.querySelectorAll('.growth-tab').forEach(b=>b.classList.toggle('on',b===btn));
-  const type=btn.dataset.growth;
-  document.querySelectorAll('.growth-card').forEach(card=>{
-    card.classList.toggle('hide',type!=='all'&&card.dataset.growth!==type);
-  });
-  document.querySelectorAll('.growth-day').forEach(day=>{
-    let sibling=day.nextElementSibling;
-    let hasVisibleCard=false;
-    while(sibling&&!sibling.classList.contains('growth-day')){
-      if(sibling.classList.contains('growth-card')&&!sibling.classList.contains('hide')) hasVisibleCard=true;
-      sibling=sibling.nextElementSibling;
-    }
-    day.classList.toggle('hide',!hasVisibleCard);
-  });
+  GrowthTrail.setFilter(btn.dataset.growth);
 }
 const GROWTH_RECORDS={
+  bookReflection:{
+    type:'interaction',interactionKind:'阅读',title:'读书笔记',date:'6月14日 · 21:18',kind:'互动',
+    headline:'读完《设计你的人生》，上传了读书笔记。',
+    userMessage:'我读完了，也把书里触动我的部分整理成了笔记。',
+    loooveResponse:'你把职业选择从一个抽象问题，慢慢拆成了可以验证的小行动。',
+    recommendationTitle:'设计你的人生',recommendationText:'边读，边写，边尝试',
+    toolThumb:'./assets/互动/career-designing-your-life-book.png',
+    returnLabel:'你上传',userReturn:'',media:['./assets/互动/career-reading-notes.png'],items:[],
+    aiSummary:'你的执行力Max，不仅读了书，还认真写下了自己的思考。你没有停在“想明白”，而是在边读、边写、边尝试，那些模糊的可能，已经开始被你一点点带进现实。'
+  },
+  deepConversation:{
+    type:'interaction',interactionKind:'深聊',title:'深度对话',date:'6月13日 · 16:24',kind:'互动',
+    headline:'完成一次深度对话，理清了思绪。',
+    userMessage:'我最近好疲惫，好烦躁。',
+    loooveResponse:'我们从身体感受谈起，也看见了声音里反复出现的自责。',
+    recommendationTitle:'深度对话',recommendationText:'把事情、感受和责任慢慢分开',
+    returnLabel:'你的觉察',userReturn:'事情本身、习惯性的自责，以及自己真正想要的，并不是同一件事。',media:[],items:[],
+    aiSummary:'这次对话里，你看清了事情本身、习惯性的自责，以及自己真正想要的。也意识到，凡事先怪自己，正在压缩你的感受和边界。带着这个觉察，继续前进吧~'
+  },
+  baduanjinPractice:{
+    type:'interaction',interactionKind:'运动',title:'八段锦练习',date:'6月11日 · 07:44',kind:'互动',
+    headline:'完成 8 分钟八段锦练习。',
+    userMessage:'今天先把节奏放轻一点。',
+    loooveResponse:'身体恢复余量不多时，熟悉、低强度的动作更容易把你带回可用区。',
+    recommendationTitle:'八段锦·轻量版',recommendationText:'8 分钟 · 四段动作',
+    toolThumb:'./assets/互动/baduanjin-sequence.png',
+    returnLabel:'练习记录',userReturn:'',media:['./assets/互动/baduanjin-sequence.png'],items:[],
+    aiSummary:'练习后，心率从 84 降到 72 bpm，肩颈紧张感也有所回落。身体已经从持续消耗里慢慢松开。'
+  },
   lifeHighlight:{
-    type:'signal',title:'高光',date:'6月12日 · 19:26',kind:'高光',
+    type:'signal',title:'高光',date:'6月12日 · 15:40',kind:'高光',
     headline:'和朋友散步时，你说了真话，也被温柔接住。',
     summary:'你没有只做那个可靠的人，也允许自己被关心。',
     voiceDetail:'散步时，你对朋友说：“其实我最近也会怕自己选错。”说完后你们一起笑了，之后的语气明显放松，也没有急着把话题带走。',
@@ -7258,7 +7517,7 @@ const GROWTH_RECORDS={
     aiSummary:'这次高光不是你把所有事都处理好了，而是你愿意在朋友面前留下真实的一面。声音与身体同时放松，说明被理解、被关心本身就在帮助你恢复。'
   },
   lifeLow:{
-    type:'signal',title:'波动',date:'6月12日 · 17:08',kind:'波动',
+    type:'signal',title:'波动',date:'6月11日 · 17:08',kind:'波动',
     headline:'期待了一周的见面临时取消，你一个人回了家。',
     summary:'你很快照顾了对方，却把自己的失落留在了身体里。',
     voiceDetail:'朋友临时取消见面时，你在语音里连续说了三次“没关系”，尾音比平时更轻。挂断以后，录音里留下了一段很长的沉默。',
@@ -7267,7 +7526,7 @@ const GROWTH_RECORDS={
     aiSummary:'这次波动来自期待突然落空。你先用“没关系”安顿了朋友，却没有给自己的失落留下位置；身体信号提醒你，这份难过也值得被承认。'
   },
   signalHighlight:{
-    type:'signal',title:'高光',date:'6月12日 · 15:40',kind:'高光',
+    type:'signal',title:'高光',date:'6月14日 · 18:42',kind:'高光',
     headline:'在评审里，把自己的判断说清楚了。',
     summary:'你没有回避分歧，也没有被分歧带走。',
     bodyNote:'你没有回避分歧，也没有被分歧带走。',
@@ -7277,7 +7536,7 @@ const GROWTH_RECORDS={
     aiSummary:'这次高光不只是表达顺利，而是你在有分歧的场景里仍然保持了自己的节奏。声音里的停顿与身体数据同步稳定，说明你开始把“坚持判断”和“对抗别人”分开了。'
   },
   signalLow:{
-    type:'signal',title:'波动',date:'6月11日 · 10:19',kind:'波动',
+    type:'signal',title:'波动',date:'6月13日 · 10:19',kind:'波动',
     headline:'会议结束了，恼火还留在身体里。',
     summary:'被直接反驳后，你还在替那场争辩消耗能量。',
     voiceDetail:'最近的录音中，你们围绕需求排期与实现边界产生了争辩；过程中，你的语速明显加快，语气里也流露出被压抑的愤怒。',
@@ -7286,8 +7545,8 @@ const GROWTH_RECORDS={
     aiSummary:'你在会议中提出需求后，被开发直接反驳，双方争辩了几句。虽然会议已经结束，但那股被顶回来的恼火，还是继续留在身体里。'
   },
   drawingBreath:{
-    type:'interaction',interactionKind:'绘画',title:'互动·绘画',date:'6月12日 · 14:16',kind:'互动',
-    headline:'烦躁慢慢退下去了。',
+    type:'interaction',interactionKind:'绘画',title:'绘画疗愈',date:'6月12日 · 18:42',kind:'互动',
+    headline:'完成一次绘画疗愈。',
     userMessage:'我有点烦躁。',
     loooveResponse:'声音和身体数据都没有明显异常，这次烦躁更像注意力积累了一点噪音。我推荐一次绘画疗愈：跟着呼吸画线，让注意力回到手和呼吸上。',
     recommendationTitle:'绘画疗愈',recommendationText:'跟着呼吸画线',
@@ -7296,8 +7555,8 @@ const GROWTH_RECORDS={
     aiSummary:'经过刚刚的疗愈，心率从 68 降至 64 bpm，HRV 从 39 回升到 43 ms；呼吸节律逐渐放慢，压力曲线也开始回落，身体正在从轻微紧绷转向放松。'
   },
   cardReflection:{
-    type:'interaction',interactionKind:'抽卡',title:'互动·抽卡',date:'6月11日 · 21:17',kind:'互动',
-    headline:'当两种生活同时拉扯你。',
+    type:'interaction',interactionKind:'抽卡',title:'潜意识探索',date:'6月11日 · 21:17',kind:'互动',
+    headline:'完成一次卡牌潜意识探索。',
     userMessage:'我最近有点迷茫。',
     loooveResponse:'最近的声音线索里同时出现了工作去留和关系争执，身体压力也持续在高位。两种生活一起占满了选择力，因此我推荐一次三张卡的潜意识探索。',
     recommendationTitle:'潜意识探索',recommendationText:'抽取三张卡，探索内心',
@@ -7328,8 +7587,8 @@ const GROWTH_RECORDS={
     aiSummary:'昨夜恢复低于近期水平，但起床后的心率变化正常。今天不需要追赶状态，从熟悉、低判断负荷的任务开始会更顺。'
   },
   weeklyReport:{
-    type:'report',reportKind:'周报告',title:'周报告',date:'6月12日 · 12:00',kind:'报告',
-    headline:'恢复波动正在收窄。',
+    type:'report',reportKind:'周报告',title:'周复盘报告',date:'6月12日 · 20:00',kind:'报告',
+    headline:'LOOOVE 推送了本周身心复盘报告。',
     metrics:[['58','Loooveness 均值'],['35ms','平均 HRV'],['6h56m','平均睡眠'],['5 次','有效记录']],
     sections:[['本周变化','周初压力高位持续时间较长，周三以后恢复速度逐渐加快。'],['情绪线索','工作分歧仍是最明显的压力来源，但你在表达边界时比之前更稳定。'],['下周关注','继续观察高压会议后的两小时，给情绪一个明确的结束点。']],
     aiSummary:'本周的变化不是压力消失了，而是你从压力里回来的速度变快了。高压之后的 HRV 回升更稳定，说明新的调节方式正在被身体记住。'
@@ -7347,10 +7606,12 @@ function growthSignalRecordMarkup(record){
     <section class="growth-record-block"><div class="growth-detail-section-title">LOOOVE 总结</div><div class="growth-ai-record">${esc(record.aiSummary)}</div></section>`;
 }
 function growthInteractionRecordMarkup(record){
-  const media=record.media.length?`<div class="growth-interaction-media ${record.interactionKind==='抽卡'?'cards':'painting'}">${record.media.map((src,index)=>`<img src="${esc(src)}" alt="${esc(record.interactionKind)}记录 ${index+1}">`).join('')}</div>`:'';
+  const mediaClass=record.interactionKind==='抽卡'?'cards':record.interactionKind==='运动'?'practice':record.interactionKind==='阅读'?'reading':'painting';
+  const media=record.media.length?`<div class="growth-interaction-media ${mediaClass}">${record.media.map((src,index)=>`<img src="${esc(src)}" alt="${esc(record.interactionKind)}记录 ${index+1}">`).join('')}</div>`:'';
   const cards=record.items.length?`<div class="growth-card-result-row">${record.items.map(([question,answer])=>`<div class="growth-card-result-item"><b>${esc(question)}</b><p>${esc(answer)}</p></div>`).join('')}</div>`:'';
   const outputCopy=!record.media.length&&!record.items.length&&record.userReturn?`<p class="growth-summary-copy">${esc(record.userReturn)}</p>`:'';
-  const outputLabel=record.interactionKind==='抽卡'?'你的探索':record.interactionKind==='绘画'?'你的画作':'你的回应';
+  const outputLabels={抽卡:'你的探索',绘画:'你的画作',阅读:'你的读书笔记',深聊:'你的觉察',运动:'练习记录'};
+  const outputLabel=outputLabels[record.interactionKind]||'你的回应';
   const hasOutput=Boolean(record.media.length||record.items.length||record.userReturn);
   const outputRow=hasOutput?`<div class="growth-summary-row growth-summary-output"><div class="growth-summary-label">${outputLabel}</div>${outputCopy}${media}${cards}</div>`:'';
   return `${growthRecordHero(record)}
@@ -7379,6 +7640,11 @@ function openGrowthRecord(key){
   const renderer=record.type==='signal'?growthSignalRecordMarkup:record.type==='interaction'?growthInteractionRecordMarkup:growthReportRecordMarkup;
   content.innerHTML=renderer(record);
   content.scrollTop=0;
+  content.querySelectorAll('section').forEach(section=>section.classList.add('growth-record-reveal'));
+  const revealBlocks=content.querySelectorAll('.growth-record-reveal');
+  revealBlocks.forEach((block,index)=>{
+    setTimeout(()=>block.classList.add('on'),180+index*320);
+  });
   screen.classList.add('on');
   renderIcons(screen);
 }
@@ -8107,19 +8373,1000 @@ function onbCommit(){
 function onbHide(){
   document.getElementById('onb')?.classList.remove('on');
 }
+const LOOOVE_PROACTIVE_COPY={
+  'zh-CN':{
+    toastMorning:'模拟时间：6月11日 · 今早',
+    toastDay2:'模拟时间：6月12日 · 第二天',
+    toastDay2Night:'模拟时间：6月12日 · 第二天晚上',
+    toastDay3:'模拟时间：6月13日 · 第三天',
+    toastDay4:'模拟时间：6月14日 · 第四天',
+    searchLabel:'搜索互动内容',
+    searchPlaceholder:'搜索当前已加载的内容',
+    searchNext:'下一个搜索结果',
+    searchClose:'关闭搜索',
+    searchEmpty:'请输入关键词',
+    searchNone:'没有找到',
+    recoveryCopyLead:'这几天你习惯用高强度训练释放自己，但今天 HRV 仅 48 ms、压力指数偏高，身体的恢复余量不多。',
+    recoveryCopyBody:'今天不妨把节奏放轻一些：做低强度的运动，或去公园慢走 20 分钟，让身体从持续消耗中慢慢松下来。',
+    practiceFeedback:'你完成了 8 分钟八段锦。练习后心率从 84 降到 72 bpm，肩颈紧张感也有所回落。身体现在感觉如何？',
+    baduanTitle:'八段锦 · 轻量版',
+    baduanMeta:'8–12 分钟 · 四段动作教学',
+    yogaTitle:'瑜伽 · 恢复序列',
+    yogaMeta:'8 分钟 · 猫牛式与婴儿式',
+    userCheckIn:'我最近好疲惫，好烦躁。',
+    analysisCopyLead:'你已经持续紧绷了一段时间。语速较平时加快 18%，HRV 降至 40 ms。',
+    analysisCopyBody:'最近的高压工作，冲突以及与关系中的波动在不断消耗你的恢复余量。该为自己留一点缓冲了，我记得你喜欢看展，最近刚好有个新展，可以去看看，如果你有余力，也可以和我进行一次深度对话~',
+    deepFeedback:'这次对话里，你看清了事情本身、习惯性的自责，以及自己真正想要的。也意识到，凡事先怪自己，正在压缩你的感受和边界。带着这个觉察，继续前进吧~',
+    artKicker:'艺术展',
+    artTitle:'世界上的另一个我',
+    artAlt:'柔和彩色的当代美术馆空间与女性倒影',
+    artIntro:'这是一次以镜像、空间与自我观看为线索的当代艺术体验。你可以不急着理解作品，只留意哪一处颜色、光线或倒影让你停下来。',
+    artAddressLabel:'地址',
+    artAddress:'浦东美术馆 · 上海市浦东新区滨江大道 2777 号',
+    artNavigation:'导航到浦东美术馆',
+    deepKicker:'深度对话',
+    deepTitle:'和 LOOOVE 深聊一次',
+    deepAlt:'两个柔和彩色的女性内在视角相对交谈',
+    artPageHeader:'艺术展',
+    conversationPageHeader:'深度对话',
+    pageBack:'返回互动',
+    deepBodyQuestion:'我们先从身体开始。最近这段时间，你的身体怎么样？有没有哪里一直紧着、沉着，或者很难放松？',
+    deepVoiceSignalLabel:'声音线索',
+    deepVoiceObservation:'你提到最近发生的事时，语速突然放慢，句尾压低，也出现了几次明显停顿。',
+    deepSelfBlame:'这些声音线索让我留意到一种自责：你似乎在问自己，是不是我再做得好一点，事情就不会这样。',
+    deepFollowup:'最近发生的哪件事，最容易让你冒出“是不是我不够好”的念头？',
+    deepReason:'这种自责未必说明责任真的在你。它更像是在事情失去控制后，你试着把原因揽回自己身上，好让结果重新变得可以解释。',
+    deepReflection:'我听到了。你在意的可能不只是这件事本身，而是害怕自己的需要让别人失望，所以习惯先检讨自己、再照顾关系。我们可以继续分开看：哪些是你真正需要承担的，哪些只是为了维持关系而多背下来的。',
+    deepContinue:'如果愿意，可以继续说说：当你不再把全部责任揽到自己身上，你最担心会发生什么？',
+    deepPlaceholder:'来和LOOOVE分享此刻的心事吧~',
+    deepSend:'发送消息',
+    videoHeader:'教学视频',
+    videoBack:'返回互动',
+    videoPlay:'播放教学视频',
+    videoPause:'暂停教学视频',
+    videoEnterFullscreen:'全屏播放',
+    videoExitFullscreen:'退出全屏',
+    videoStep:'动作',
+    nightCopyLead:'已经 00:47，你还没有入睡，心率仍比夜间基线高 7 bpm。',
+    nightCopyBody:'睡不着的话，让我们听一首舒缓的音乐，或完成一次身体扫描，慢慢进入睡眠。',
+    musicFeedback:'音乐结束了。晚安，今晚先让身体休息。',
+    musicCardTitle:'睡前音乐',
+    musicCardMeta:'Spiegel im Spiegel',
+    musicAlt:'月光卧室里准备听音乐的女性',
+    musicHeader:'睡前音乐',
+    musicTitle:'Spiegel im Spiegel',
+    musicMeta:'Arvo Pärt · 约 9 分钟',
+    musicIntro:'没有歌词和明显鼓点。先听一遍，让注意力慢慢离开仍在运转的思绪，不要求自己立刻睡着。',
+    musicAction:'播放音乐',
+    musicActionActive:'暂停',
+    meditationCardTitle:'身体扫描',
+    meditationCardMeta:'6 分钟',
+    meditationAlt:'月光下躺在床上进行身体扫描的女性',
+    meditationHeader:'身体扫描',
+    meditationTitle:'6 分钟身体扫描',
+    meditationMeta:'躺姿 · 无需屏息',
+    meditationIntro:'从额头走到脚底，只确认哪里还在用力；跟着呼气，让注意力一段一段向下。',
+    meditationAction:'开始冥想',
+    meditationActionActive:'暂停',
+    foodCopyLead:'广东近期闷热潮湿，再加上你近 3 晚平均入睡延后 38 分钟、夜间醒来 2 次，身体的恢复负担正在增加。',
+    foodCopyBody:'今天可以把饮食调清淡一些，补足水分，也可以通过日常食物适量补充钾和镁~',
+    foodPageHeader:'今天怎么吃',
+    foodPageBack:'返回互动',
+    foodStepsLabel:'简单做法',
+    mungTitle:'绿豆百合小碗',
+    mungMeta:'补充水分',
+    mungAlt:'柔和水彩风格的绿豆百合小碗',
+    mungSteps:['绿豆提前浸泡，清水煮至软开花。','关火前加入泡发百合，再煮 5 分钟。','少量糖或不加糖，放到温热后再吃。'],
+    bananaTitle:'香蕉燕麦酸奶杯',
+    bananaMeta:'补充钾与镁',
+    bananaAlt:'柔和水彩风格的香蕉燕麦酸奶杯',
+    bananaSteps:['半根香蕉切片，放入原味酸奶。','加入 2 汤匙燕麦，撒少量南瓜籽。','拌匀后直接食用，不必再加蜂蜜。'],
+    perspectiveCopyLead:'你这两天恢复得不错，HRV 回到 56 ms，睡眠效率 88%。',
+    perspectiveCopyBody:'前阵子更适合先稳住自己，现在有了一点余力，可以试着向外走一步，重新打开职业上的可能。',
+    careerNoteFeedback:'你的执行力Max，不仅读了书，还认真写下了自己的思考。你没有停在“想明白”，而是在边读、边写、边尝试，那些模糊的可能，已经开始被你一点点带进现实。',
+    bookCardTitle:'读《设计你的人生》',
+    bookCardMeta:'换个角度看工作与选择',
+    bookAlt:'暖色水彩画中的一本精装书',
+    bookHeader:'职业阅读',
+    bookTitle:'设计你的人生',
+    bookMeta:'Bill Burnett & Dave Evans',
+    bookIntro:'不急着找到唯一答案。先从书里的“原型体验”开始，把一个职业方向变成可以验证的小尝试。',
+    bookAction:'开始阅读',
+    bookActionActive:'继续阅读',
+    interviewCardTitle:'约一次职业访谈',
+    interviewCardMeta:'找一位你欣赏的同行，聊 30 分钟他的路径与真实工作日常',
+    interviewAlt:'两位女性在柔和日光中进行职业访谈',
+    interviewHeader:'职业访谈',
+    interviewTitle:'约一位欣赏的同行',
+    interviewMeta:'30 分钟 · 了解真实工作日常',
+    interviewIntro:'不求建议，只问路径、日常和困难。带着三个具体问题去聊，看看这个方向是否适合你。',
+    interviewAction:'准备三个问题',
+    interviewActionActive:'问题已准备',
+    resourcePageBack:'返回互动',
+    baduanSteps:['预备式 · 调整站姿','托掌 · 随呼吸上提','开胸 · 放松肩颈','收势 · 回到自然站立'],
+    yogaSteps:['桌式 · 手腕置于肩下','猫式 · 背部缓慢拱起','牛式 · 胸口柔和打开','婴儿式 · 向后安静休息']
+  },
+  en:{
+    toastMorning:'Simulated time: Jun 11 · morning',
+    toastDay2:'Simulated time: Jun 12 · day two',
+    toastDay2Night:'Simulated time: Jun 12 · night',
+    toastDay3:'Simulated time: Jun 13 · day three',
+    toastDay4:'Simulated time: Jun 14 · day four',
+    searchLabel:'Search conversation',
+    searchPlaceholder:'Search loaded messages',
+    searchNext:'Next search result',
+    searchClose:'Close search',
+    searchEmpty:'Enter a keyword',
+    searchNone:'No results',
+    recoveryCopyLead:'Over the past few days, you have been using high-intensity training to release tension. Today HRV is only 48 ms and your stress index is high, leaving little recovery reserve.',
+    recoveryCopyBody:'Let the pace soften today: choose low-intensity movement or take a slow 20-minute walk in the park, and let your body ease out of sustained exertion.',
+    practiceFeedback:'You completed eight minutes of Baduanjin. Heart rate eased from 84 to 72 bpm, and neck and shoulder tension also softened. How does your body feel now?',
+    baduanTitle:'Baduanjin · gentle set',
+    baduanMeta:'8–12 min · four guided movements',
+    yogaTitle:'Yoga · recovery flow',
+    yogaMeta:'8 min · cat–cow and child’s pose',
+    userCheckIn:'I’ve been so tired and irritable lately.',
+    analysisCopyLead:'You have been tense for a while. Speech is 18% faster than usual, and HRV has fallen to 40 ms.',
+    analysisCopyBody:'Recent high-pressure work, conflict, and changes in your relationship are steadily using up your recovery reserve. It is time to leave yourself a little buffer. I remember you enjoy exhibitions, and there is a new one on now. You could go take a look—or, if you have the bandwidth, we can have a deeper conversation together.',
+    deepFeedback:'In this conversation, you saw the situation itself, your habitual self-blame, and what you truly want. You also noticed that blaming yourself first is narrowing your feelings and boundaries. Carry this awareness forward.',
+    artKicker:'Art exhibition',
+    artTitle:'Another Me in the World',
+    artAlt:'A softly colored contemporary gallery with a woman and her reflection',
+    artIntro:'A contemporary art experience shaped around mirrors, space, and self-observation. You do not have to understand each work—just notice which color, light, or reflection makes you pause.',
+    artAddressLabel:'Address',
+    artAddress:'Museum of Art Pudong · 2777 Binjiang Avenue, Pudong New Area, Shanghai',
+    artNavigation:'Navigate to Museum of Art Pudong',
+    deepKicker:'Deeper conversation',
+    deepTitle:'Have a deeper talk with LOOOVE',
+    deepAlt:'Two softly colored feminine inner perspectives facing each other in conversation',
+    artPageHeader:'Art exhibition',
+    conversationPageHeader:'Deeper conversation',
+    pageBack:'Back to conversation',
+    deepBodyQuestion:'Let us begin with your body. How has it felt lately? Is there anywhere that stays tense, heavy, or difficult to relax?',
+    deepVoiceSignalLabel:'Voice signal',
+    deepVoiceObservation:'When you spoke about what happened recently, your pace suddenly slowed, your sentence endings softened, and several pauses became noticeably longer.',
+    deepSelfBlame:'Those voice signals point to self-blame: you seem to be asking whether things would have gone differently if you had done better.',
+    deepFollowup:'Which recent moment most easily brings up the thought, “Maybe I was not good enough”?',
+    deepReason:'Self-blame does not necessarily mean the responsibility is yours. When something feels out of control, taking the cause back onto yourself can make the outcome feel explainable again.',
+    deepReflection:'I hear you. What hurts may be more than the event itself—you may fear that your needs will disappoint someone, so you examine yourself before caring for the relationship. We can separate what is truly yours to carry from what you picked up simply to keep the relationship intact.',
+    deepContinue:'If you would like, keep going: what do you fear might happen if you stopped carrying all of the responsibility?',
+    deepPlaceholder:'Share what’s on your mind…',
+    deepSend:'Send message',
+    videoHeader:'Teaching video',
+    videoBack:'Back to conversation',
+    videoPlay:'Play teaching video',
+    videoPause:'Pause teaching video',
+    videoEnterFullscreen:'Enter fullscreen',
+    videoExitFullscreen:'Exit fullscreen',
+    videoStep:'Movement',
+    nightCopyLead:'It is already 00:47, and you are still awake. Your heart rate remains 7 bpm above your nighttime baseline.',
+    nightCopyBody:'If sleep is not coming, let us listen to something calming or complete a body scan and ease into sleep.',
+    musicFeedback:'The music has ended. Good night—let your body rest now.',
+    musicCardTitle:'Bedtime music',
+    musicCardMeta:'Spiegel im Spiegel',
+    musicAlt:'A woman preparing to listen to music in a moonlit bedroom',
+    musicHeader:'Bedtime music',
+    musicTitle:'Spiegel im Spiegel',
+    musicMeta:'Arvo Pärt · about 9 min',
+    musicIntro:'No lyrics and no pronounced beat. Listen once and let your attention leave thoughts that are still running, without asking yourself to fall asleep immediately.',
+    musicAction:'Play music',
+    musicActionActive:'Pause',
+    meditationCardTitle:'Body scan',
+    meditationCardMeta:'6 minutes',
+    meditationAlt:'A woman lying down for a body scan in moonlight',
+    meditationHeader:'Body scan',
+    meditationTitle:'6-minute body scan',
+    meditationMeta:'Lying down · no breath holds',
+    meditationIntro:'Move from forehead to feet and notice where effort remains; follow each exhale as attention moves downward, one area at a time.',
+    meditationAction:'Start meditation',
+    meditationActionActive:'Pause',
+    foodCopyLead:'Guangdong has been hot and humid lately. Together with falling asleep 38 minutes later on average and waking twice across the past three nights, this is adding to your recovery load.',
+    foodCopyBody:"Keep today's food light, prioritize water, and use everyday foods for a moderate amount of potassium and magnesium.",
+    foodPageHeader:'What to eat today',
+    foodPageBack:'Back to conversation',
+    foodStepsLabel:'Simple preparation',
+    mungTitle:'Mung bean & lily bowl',
+    mungMeta:'Hydration',
+    mungAlt:'A soft watercolor mung bean and lily bowl',
+    mungSteps:['Soak the mung beans, then simmer until soft.','Add soaked lily bulbs for the final 5 minutes.','Use little or no sugar, and let it cool to warm before eating.'],
+    bananaTitle:'Banana oat yogurt cup',
+    bananaMeta:'Potassium + magnesium',
+    bananaAlt:'A soft watercolor banana oat yogurt cup',
+    bananaSteps:['Slice half a banana into plain yogurt.','Add 2 tablespoons of oats and a small sprinkle of pumpkin seeds.','Stir gently and serve; no honey is needed.'],
+    perspectiveCopyLead:'Your recovery has been steady for two days: HRV is back to 56 ms and sleep efficiency is 88%.',
+    perspectiveCopyBody:'Earlier, it made sense to steady yourself first. Now that you have a little room, take one step outward and reopen the possibilities in your working life.',
+    careerNoteFeedback:'Your follow-through is at full strength: you read the book and wrote down your own thinking. You did not stop at understanding—you kept reading, writing, and experimenting, bringing blurred possibilities into real life one step at a time.',
+    bookCardTitle:'Read Designing Your Life',
+    bookCardMeta:'See work and choices differently',
+    bookAlt:'A single hardcover book in warm watercolor',
+    bookHeader:'Career reading',
+    bookTitle:'Designing Your Life',
+    bookMeta:'Bill Burnett & Dave Evans',
+    bookIntro:'You do not need one perfect answer. Start with a prototype experience and turn one career direction into a small experiment you can test.',
+    bookAction:'Start reading',
+    bookActionActive:'Continue reading',
+    interviewCardTitle:'Book a career conversation',
+    interviewCardMeta:'30 minutes with a peer you admire',
+    interviewAlt:'Two women having a career conversation in soft daylight',
+    interviewHeader:'Career conversation',
+    interviewTitle:'Meet a peer you admire',
+    interviewMeta:'30 minutes · learn the real working day',
+    interviewIntro:'Do not ask for advice. Ask about their path, daily work, and difficulties. Bring three specific questions and see whether this direction fits you.',
+    interviewAction:'Prepare three questions',
+    interviewActionActive:'Questions ready',
+    resourcePageBack:'Back to conversation',
+    baduanSteps:['Prepare · settle your stance','Lift · follow the breath upward','Open · release neck and shoulders','Close · return to a natural stance'],
+    yogaSteps:['Tabletop · wrists below shoulders','Cat · round the spine gently','Cow · soften the chest forward','Child’s pose · rest back quietly']
+  }
+};
+
+const LOOOVEInteraction={
+  timers:[],
+  run:0,
+  timing:{contentPause:1500,toastVisible:2200,recommendationPress:650,feedbackPause:2800,practiceProgress:3000,detailDwell:3600,audioPlayDelay:1300,audioDetailDwell:4600},
+  pace:[2200,1500,1500,1500,4400,2800,2200,1500,1500,1500,1500,4400,2800,2200,1500,1500,1500,5500,2800,2200,1500,1500,1500,2200,1500,1500,1500,1500],
+  deepTurn:0,
+  deepReplyTimer:null,
+  videoTimer:null,
+  videoPlaying:false,
+  videoPercent:0,
+  videoKind:'baduan',
+  searchQuery:'',
+  searchIndex:-1,
+  copy(){
+    return LOOOVE_PROACTIVE_COPY[I18n?.lang==='en'?'en':'zh-CN'];
+  },
+  timeline(){
+    return I18n?.lang==='en'
+      ?{
+        recovery:'Jun 11 · 07:32',
+        practiceFeedback:'Jun 11 · 07:44',
+        user:'Jun 12 · 16:20',
+        support:'Jun 12 · 16:21',
+        deepFeedback:'Jun 12 · 16:24',
+        night:'Jun 12 · 23:47',
+        musicFeedback:'Jun 12 · 23:57',
+        food:'Jun 13 · 12:18',
+        perspective:'Jun 14 · 20:36',
+        careerNote:'Jun 14 · 21:18',
+        careerFeedback:'Jun 14 · 21:19'
+      }
+      :{
+        recovery:'6月11日 · 07:32',
+        practiceFeedback:'6月11日 · 07:44',
+        user:'6月12日 · 16:20',
+        support:'6月12日 · 16:21',
+        deepFeedback:'6月12日 · 16:24',
+        night:'6月12日 · 23:47',
+        musicFeedback:'6月12日 · 23:57',
+        food:'6月13日 · 12:18',
+        perspective:'6月14日 · 20:36',
+        careerNote:'6月14日 · 21:18',
+        careerFeedback:'6月14日 · 21:19'
+      };
+  },
+  timestamp(moment=''){
+    if(moment)return this.timeline()[moment]||moment;
+    const now=new Date();
+    return String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+  },
+  agentIdentity(moment=''){
+    return "<div class=\"proactive-ai-line\"><i></i><span>LOOOVE</span><time>"+this.timestamp(moment)+"</time></div>";
+  },
+  userIdentity(className='proactive-user-label',moment=''){
+    return "<div class=\""+className+"\"><time>"+this.timestamp(moment)+"</time></div>";
+  },
+  delay(ms){
+    return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?28:ms;
+  },
+  feed(){
+    return document.getElementById('loooveProactiveFeed');
+  },
+  toggleSearch(){
+    const screen=document.getElementById('homeAwarenessPlaceholder');
+    if(!screen?.classList.contains('searching'))return this.openSearch();
+    this.closeSearch();
+  },
+  openSearch(){
+    const screen=document.getElementById('homeAwarenessPlaceholder');
+    const panel=document.getElementById('proactiveSearchPanel');
+    const button=screen?.querySelector('.proactive-search-btn');
+    if(!screen||!panel)return;
+    screen.classList.add('searching');
+    panel.setAttribute('aria-hidden','false');
+    button?.setAttribute('aria-expanded','true');
+    const input=document.getElementById('proactiveSearchInput');
+    requestAnimationFrame(()=>input?.focus());
+  },
+  closeSearch(silent=false){
+    const screen=document.getElementById('homeAwarenessPlaceholder');
+    const panel=document.getElementById('proactiveSearchPanel');
+    const button=screen?.querySelector('.proactive-search-btn');
+    screen?.classList.remove('searching');
+    panel?.setAttribute('aria-hidden','true');
+    button?.setAttribute('aria-expanded','false');
+    this.clearSearchMatch();
+    this.searchQuery='';
+    this.searchIndex=-1;
+    const input=document.getElementById('proactiveSearchInput');
+    const status=document.getElementById('proactiveSearchStatus');
+    if(input)input.value='';
+    if(status)status.textContent='';
+    if(!silent)button?.focus();
+  },
+  clearSearchMatch(){
+    this.feed()?.querySelectorAll('.proactive-stream-item.is-search-match').forEach(node=>node.classList.remove('is-search-match'));
+  },
+  submitSearch(event){
+    event?.preventDefault?.();
+    const input=document.getElementById('proactiveSearchInput');
+    const status=document.getElementById('proactiveSearchStatus');
+    const query=input?.value.trim()||'';
+    const c=this.copy();
+    this.clearSearchMatch();
+    if(!query){
+      if(status)status.textContent=c.searchEmpty;
+      return false;
+    }
+    const normalized=query.toLocaleLowerCase();
+    const matches=[...(this.feed()?.querySelectorAll('.proactive-stream-item')||[])]
+      .filter(node=>node.textContent.toLocaleLowerCase().includes(normalized));
+    if(!matches.length){
+      this.searchQuery=normalized;
+      this.searchIndex=-1;
+      if(status)status.textContent=c.searchNone;
+      return false;
+    }
+    this.searchIndex=this.searchQuery===normalized?(this.searchIndex+1)%matches.length:0;
+    this.searchQuery=normalized;
+    const current=matches[this.searchIndex];
+    current.classList.add('is-search-match');
+    if(status)status.textContent=(this.searchIndex+1)+'/'+matches.length;
+    const behavior=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+    current.scrollIntoView({behavior,block:'center'});
+    return false;
+  },
+  highlightMetrics(text){
+    const metrics=[
+      'HRV 仅 48 ms','压力指数偏高','语速较平时加快 18%','HRV 降至 40 ms',
+      '近 3 晚平均入睡延后 38 分钟','夜间醒来 2 次','00:47','心率仍比夜间基线高 7 bpm',
+      'HRV 回到 56 ms','睡眠效率 88%','心率从 84 降到 72 bpm',
+      'HRV is only 48 ms','stress index is high','Speech is 18% faster than usual','HRV has fallen to 40 ms',
+      '00:47','7 bpm above your nighttime baseline','HRV is back to 56 ms','sleep efficiency is 88%'
+    ];
+    return metrics.reduce((copy,metric)=>copy.replace(metric,"<span class=\"proactive-metric\">"+metric+"</span>"),String(text));
+  },
+  syncStaticLabels(){
+    const english=I18n?.lang==='en';
+    const c=this.copy();
+    const labels=[
+      ['#homeAwarenessPlaceholder .proactive-search-btn','搜索互动内容','Search conversation'],
+      ['#homeAwarenessPlaceholder .proactive-body','LOOOVE 主动互动区','LOOOVE proactive guidance'],
+      ['#loooveProactiveFeed','AI 动态简报','Dynamic AI briefing'],
+      ['#practiceVideoScreen','运动教学视频','Movement teaching video'],
+      ['#proactiveArtScreen','艺术展','Art exhibition'],
+      ['#proactiveConversationScreen','深度对话','Deeper conversation'],
+      ['#proactiveFoodScreen','饮食建议','Food suggestion'],
+      ['#proactiveResourceScreen','推荐详情','Recommendation details']
+    ];
+    labels.forEach(([selector,zh,en])=>document.querySelector(selector)?.setAttribute('aria-label',english?en:zh));
+    const searchInput=document.getElementById('proactiveSearchInput');
+    searchInput?.setAttribute('placeholder',c.searchPlaceholder);
+    searchInput?.setAttribute('aria-label',c.searchLabel);
+    document.querySelector('.proactive-search-next')?.setAttribute('aria-label',c.searchNext);
+    document.querySelector('.proactive-search-close')?.setAttribute('aria-label',c.searchClose);
+    document.getElementById('practiceVideoHeader').textContent=c.videoHeader;
+    document.getElementById('practiceVideoTitle').textContent=c.baduanTitle;
+    document.getElementById('practiceVideoMeta').textContent=c.baduanMeta;
+    document.getElementById('practiceVideoStepIndex').textContent=c.videoStep+' 1 / 4';
+    document.getElementById('practiceVideoStepTitle').textContent=c.baduanSteps[0];
+    document.getElementById('practiceVideoImage')?.setAttribute('alt',c.baduanTitle);
+    document.getElementById('practiceVideoPlay')?.setAttribute('aria-label',c.videoPause);
+    document.querySelector('#practiceVideoScreen .practice-video-close')?.setAttribute('aria-label',c.videoBack);
+    document.getElementById('practiceVideoFullscreen')?.setAttribute('aria-label',c.videoEnterFullscreen);
+    document.getElementById('proactiveArtPageHeader').textContent=c.artPageHeader;
+    document.getElementById('proactiveArtPageTitle').textContent=c.artTitle;
+    document.getElementById('proactiveArtPageIntro').textContent=c.artIntro;
+    document.getElementById('proactiveArtPageAddressLabel').textContent=c.artAddressLabel;
+    document.getElementById('proactiveArtPageAddress').textContent=c.artAddress;
+    document.querySelector('.proactive-art-page-navigation')?.setAttribute('aria-label',c.artNavigation);
+    document.querySelector('#proactiveArtScreen img')?.setAttribute('alt',c.artAlt);
+    document.getElementById('proactiveConversationPageHeader').textContent=c.conversationPageHeader;
+    ['proactiveMainInput','proactiveDeepInput'].forEach(id=>{
+      document.getElementById(id)?.setAttribute('placeholder',c.deepPlaceholder);
+      document.getElementById(id)?.setAttribute('aria-label',c.deepPlaceholder);
+    });
+    ['proactiveMainSend','proactiveDeepSend'].forEach(id=>document.getElementById(id)?.setAttribute('aria-label',c.deepSend));
+    document.querySelectorAll('.proactive-detail-back').forEach(button=>button.setAttribute('aria-label',c.pageBack));
+    const food=this.foodData().mung;
+    document.getElementById('proactiveFoodPageHeader').textContent=c.foodPageHeader;
+    document.getElementById('proactiveFoodPageTitle').textContent=food.title;
+    document.getElementById('proactiveFoodStepsLabel').textContent=c.foodStepsLabel;
+    document.getElementById('proactiveFoodImage')?.setAttribute('alt',food.alt);
+    document.querySelector('#proactiveFoodScreen .proactive-detail-back')?.setAttribute('aria-label',c.foodPageBack);
+    const resource=this.resourceData().music;
+    document.getElementById('proactiveResourceHeader').textContent=resource.header;
+    document.getElementById('proactiveResourceTitle').textContent=resource.title;
+    document.getElementById('proactiveResourceMeta').textContent=resource.meta;
+    document.getElementById('proactiveResourceIntro').textContent=resource.intro;
+    document.getElementById('proactiveResourceAction').textContent=resource.action;
+    document.getElementById('proactiveResourceImage')?.setAttribute('alt',resource.alt);
+    document.querySelector('#proactiveResourceScreen .proactive-detail-back')?.setAttribute('aria-label',c.resourcePageBack);
+  },
+  stop(){
+    this.timers.forEach(timer=>clearTimeout(timer));
+    this.timers=[];
+    this.run+=1;
+    this.closeSupportPage(true);
+    this.closeFoodPage(true);
+    this.closeResourcePage(true);
+    this.closePracticeVideo(true);
+    this.closeSearch(true);
+    const toast=document.getElementById('proactiveSimulationToast');
+    toast?.classList.remove('on');
+    if(toast)toast.textContent='';
+  },
+  start(){
+    this.stop();
+    const run=this.run;
+    const feed=this.feed();
+    if(!feed)return;
+    this.syncStaticLabels();
+    feed.innerHTML='';
+    const mainInput=document.getElementById('proactiveMainInput');
+    if(mainInput)mainInput.value='';
+    this.runSequence(this.sequence(),0,run);
+  },
+  sequence(){
+    return [
+      ()=>this.showSimulationToast('toastMorning'),
+      ()=>this.renderRecoveryIntro(),
+      ()=>this.renderPracticeCard('baduan'),
+      ()=>this.renderPracticeCard('yoga'),
+      ()=>this.simulatePracticeVisit(),
+      ()=>this.renderPracticeFeedback(),
+      ()=>this.showSimulationToast('toastDay2'),
+      ()=>this.renderUserCheckIn(),
+      ()=>this.renderSupportPlan(),
+      ()=>this.renderSupportCard('art'),
+      ()=>this.renderSupportCard('deep'),
+      ()=>this.simulateDeepVisit(),
+      ()=>this.renderDeepFeedback(),
+      ()=>this.showSimulationToast('toastDay2Night'),
+      ()=>this.renderNightPlan(),
+      ()=>this.renderResourceCard('music'),
+      ()=>this.renderResourceCard('meditation'),
+      ()=>this.simulateMusicVisit(),
+      ()=>this.renderMusicFeedback(),
+      ()=>this.showSimulationToast('toastDay3'),
+      ()=>this.renderFoodPlan(),
+      ()=>this.renderFoodCard('mung'),
+      ()=>this.renderFoodCard('banana'),
+      ()=>this.showSimulationToast('toastDay4'),
+      ()=>this.renderPerspectivePlan(),
+      ()=>this.renderResourceCard('book'),
+      ()=>this.renderResourceCard('interview'),
+      ()=>this.renderCareerNoteUpload(),
+      ()=>this.renderCareerNoteFeedback()
+    ];
+  },
+  runSequence(tasks,index,run){
+    if(run!==this.run||index>=tasks.length)return;
+    tasks[index]();
+    if(index>=tasks.length-1)return;
+    const timer=setTimeout(()=>this.runSequence(tasks,index+1,run),this.delay(this.pace[index]));
+    this.timers.push(timer);
+  },
+  showSimulationToast(key){
+    const toast=document.getElementById('proactiveSimulationToast');
+    const text=this.copy()[key];
+    if(!toast||!text)return;
+    toast.classList.remove('on');
+    toast.textContent=text;
+    void toast.offsetWidth;
+    toast.classList.add('on');
+    const run=this.run;
+    const timer=setTimeout(()=>{
+      if(run!==this.run)return;
+      toast.classList.remove('on');
+    },this.delay(this.timing.toastVisible));
+    this.timers.push(timer);
+  },
+  append(markup){
+    const feed=this.feed();
+    if(!feed)return null;
+    feed.insertAdjacentHTML('beforeend',markup);
+    const node=feed.lastElementChild;
+    this.followLatest(node);
+    return node;
+  },
+  appendRecoveryPart(selector,markup){
+    const target=this.feed()?.querySelector(selector);
+    if(!target)return null;
+    target.insertAdjacentHTML('beforeend',markup);
+    const node=target.lastElementChild;
+    this.followLatest(node);
+    return node;
+  },
+  activateRecommendation(button,type,kind){
+    if(!button||button.classList.contains('is-opening'))return;
+    const action={
+      practice:()=>this.openPracticeVideo(kind),
+      support:()=>this.openSupportPage(kind),
+      food:()=>this.openFoodPage(kind),
+      resource:()=>this.openResourcePage(kind)
+    }[type];
+    if(!action)return;
+    const run=this.run;
+    button.classList.add('is-opening');
+    button.setAttribute('aria-busy','true');
+    this.followLatest(button);
+    Audio$?.soft?.();
+    const timer=setTimeout(()=>{
+      if(run!==this.run)return;
+      button.classList.remove('is-opening');
+      button.removeAttribute('aria-busy');
+      action();
+    },this.delay(this.timing.recommendationPress));
+    this.timers.push(timer);
+  },
+  pressRecommendation(selector,onOpen){
+    const card=this.feed()?.querySelector(selector);
+    if(!card){
+      onOpen();
+      return;
+    }
+    const run=this.run;
+    card.classList.add('is-opening');
+    card.setAttribute('aria-busy','true');
+    this.followLatest(card);
+    Audio$?.soft?.();
+    const timer=setTimeout(()=>{
+      if(run!==this.run)return;
+      card.classList.remove('is-opening');
+      card.removeAttribute('aria-busy');
+      onOpen();
+    },this.delay(this.timing.recommendationPress));
+    this.timers.push(timer);
+  },
+  renderRecoveryIntro(){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-recovery-intro proactive-recovery-plan\"><div class=\"proactive-agent-bubble\">"+this.agentIdentity('recovery')+"<div class=\"proactive-primary-copy\"><p>"+this.highlightMetrics(c.recoveryCopyLead)+"</p><p>"+this.highlightMetrics(c.recoveryCopyBody)+"</p></div><div class=\"proactive-practice-grid proactive-card-grid\"></div></div></section>");
+  },
+  renderPracticeCard(kind){
+    const c=this.copy();
+    const yoga=kind==='yoga';
+    const title=yoga?c.yogaTitle:c.baduanTitle;
+    const meta=yoga?c.yogaMeta:c.baduanMeta;
+    const src=yoga?'./assets/互动/yoga-sequence.png':'./assets/互动/baduanjin-sequence.png';
+    this.appendRecoveryPart('.proactive-practice-grid',"<button class=\"proactive-stage-item proactive-practice-card\" type=\"button\" onclick=\"LOOOVEInteraction.activateRecommendation(this,'practice','"+kind+"')\" aria-label=\""+title+"\"><span class=\"proactive-practice-media\"><img src=\""+src+"\" alt=\""+title+"\"></span><span class=\"proactive-practice-copy\"><span><h4>"+title+"</h4><p>"+meta+"</p></span><span class=\"proactive-practice-arrow\" aria-hidden=\"true\">›</span></span></button>");
+  },
+  simulatePracticeVisit(){
+    this.pressRecommendation('.proactive-practice-card',()=>{
+      this.openPracticeVideo('baduan');
+      this.setVideoPlaying(true,this.timing.practiceProgress);
+      const run=this.run;
+      const completeTimer=setTimeout(()=>{
+        if(run!==this.run)return;
+        this.videoPercent=100;
+        this.updatePracticeVideo();
+        this.setVideoPlaying(false);
+      },this.delay(this.timing.practiceProgress));
+      const closeTimer=setTimeout(()=>{
+        if(run!==this.run)return;
+        this.closePracticeVideo(true);
+      },this.delay(this.timing.detailDwell));
+      this.timers.push(completeTimer,closeTimer);
+    });
+  },
+  renderCompletionFeedback(copyKey,moment,className){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-completion-feedback "+className+"\"><div class=\"proactive-agent-bubble\">"+this.agentIdentity(moment)+"<div class=\"proactive-feedback-copy\"><p>"+this.highlightMetrics(c[copyKey])+"</p></div></div></section>");
+  },
+  renderPracticeFeedback(){
+    this.renderCompletionFeedback('practiceFeedback','practiceFeedback','proactive-practice-feedback');
+  },
+  renderUserCheckIn(){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-user-checkin\"><div class=\"proactive-stream-break\"></div>"+this.userIdentity('proactive-user-label','user')+"<div class=\"proactive-user-bubble\">"+c.userCheckIn+"</div></section>");
+  },
+  renderSupportPlan(){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-support-options proactive-support-plan\"><div class=\"proactive-agent-bubble\">"+this.agentIdentity('support')+"<div class=\"proactive-analysis-copy\"><p>"+this.highlightMetrics(c.analysisCopyLead)+"</p><p>"+this.highlightMetrics(c.analysisCopyBody)+"</p></div><div class=\"proactive-support-grid proactive-card-grid\"></div></div></section>");
+  },
+  renderSupportCard(kind){
+    const c=this.copy();
+    const deep=kind==='deep';
+    const visual=deep
+      ?"<span class=\"proactive-deep-visual\"><img src=\"./assets/互动/deep-conversation.png\" alt=\""+c.deepAlt+"\"></span>"
+      :"<span class=\"proactive-art-media\"><img src=\"./assets/互动/art-reset-exhibition.png\" alt=\""+c.artAlt+"\"></span>";
+    const cardTitle=deep?c.deepKicker:c.artKicker;
+    const cardMeta=deep?c.deepTitle:c.artTitle;
+    this.appendRecoveryPart('.proactive-support-grid',"<button class=\"proactive-stage-item proactive-support-card\" data-support=\""+kind+"\" type=\"button\" onclick=\"LOOOVEInteraction.activateRecommendation(this,'support','"+kind+"')\">"+visual+"<span class=\"proactive-practice-copy\"><span><h4>"+cardTitle+"</h4><p>"+cardMeta+"</p></span><span class=\"proactive-practice-arrow\" aria-hidden=\"true\">›</span></span></button>");
+  },
+  simulateDeepVisit(){
+    this.pressRecommendation('.proactive-support-card[data-support="deep"]',()=>{
+      this.openSupportPage('deep');
+      const run=this.run;
+      const timer=setTimeout(()=>{
+        if(run!==this.run)return;
+        this.closeSupportPage(true);
+      },this.delay(this.timing.detailDwell));
+      this.timers.push(timer);
+    });
+  },
+  renderDeepFeedback(){
+    this.renderCompletionFeedback('deepFeedback','deepFeedback','proactive-deep-feedback');
+  },
+  renderNightPlan(){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-night-plan\"><div class=\"proactive-stream-break\"></div><div class=\"proactive-agent-bubble\">"+this.agentIdentity('night')+"<div class=\"proactive-night-copy\"><p>"+this.highlightMetrics(c.nightCopyLead)+"</p><p>"+this.highlightMetrics(c.nightCopyBody)+"</p></div><div class=\"proactive-resource-grid proactive-night-grid proactive-card-grid\"></div></div></section>");
+  },
+  renderFoodPlan(){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-food-plan\"><div class=\"proactive-stream-break\"></div><div class=\"proactive-agent-bubble\">"+this.agentIdentity('food')+"<div class=\"proactive-food-copy\"><p>"+this.highlightMetrics(c.foodCopyLead)+"</p><p>"+this.highlightMetrics(c.foodCopyBody)+"</p></div><div class=\"proactive-food-grid proactive-card-grid\"></div></div></section>");
+  },
+  renderFoodCard(kind){
+    const data=this.foodData()[kind];
+    if(!data)return;
+    this.appendRecoveryPart('.proactive-food-grid',"<button class=\"proactive-stage-item proactive-food-card\" data-food=\""+kind+"\" type=\"button\" onclick=\"LOOOVEInteraction.activateRecommendation(this,'food','"+kind+"')\"><span class=\"proactive-food-media\"><img src=\""+data.src+"\" alt=\""+data.alt+"\"></span><span class=\"proactive-practice-copy\"><span><h4>"+data.title+"</h4><p>"+data.meta+"</p></span><span class=\"proactive-practice-arrow\" aria-hidden=\"true\">›</span></span></button>");
+  },
+  renderPerspectivePlan(){
+    const c=this.copy();
+    this.append("<section class=\"proactive-stream-item proactive-perspective-plan\"><div class=\"proactive-stream-break\"></div><div class=\"proactive-agent-bubble\">"+this.agentIdentity('perspective')+"<div class=\"proactive-perspective-copy\"><p>"+this.highlightMetrics(c.perspectiveCopyLead)+"</p><p>"+this.highlightMetrics(c.perspectiveCopyBody)+"</p></div><div class=\"proactive-resource-grid proactive-perspective-grid proactive-card-grid\"></div></div></section>");
+  },
+  renderCareerNoteUpload(){
+    const alt=I18n?.lang==='en'?'Uploaded reading notes from Designing Your Life':'《设计你的人生》读书笔记';
+    this.append("<section class=\"proactive-stream-item proactive-user-upload\">"+this.userIdentity('proactive-user-label','careerNote')+"<div class=\"proactive-user-upload-card\"><img src=\"./assets/互动/career-reading-notes.png\" alt=\""+alt+"\"></div></section>");
+  },
+  renderCareerNoteFeedback(){
+    this.renderCompletionFeedback('careerNoteFeedback','careerFeedback','proactive-career-feedback');
+  },
+  renderResourceCard(kind){
+    const data=this.resourceData()[kind];
+    if(!data)return;
+    this.appendRecoveryPart('.proactive-'+data.group+'-grid',"<button class=\"proactive-stage-item proactive-resource-card\" data-resource=\""+kind+"\" type=\"button\" aria-label=\""+data.cardTitle+"\" onclick=\"LOOOVEInteraction.activateRecommendation(this,'resource','"+kind+"')\"><span class=\"proactive-resource-media\"><img src=\""+data.src+"\" alt=\""+data.alt+"\"></span><span class=\"proactive-practice-copy\"><span><h4>"+data.cardTitle+"</h4><p>"+data.cardMeta+"</p></span><span class=\"proactive-practice-arrow\" aria-hidden=\"true\">›</span></span></button>");
+  },
+  simulateMusicVisit(){
+    this.pressRecommendation('.proactive-resource-card[data-resource="music"]',()=>{
+      this.openResourcePage('music');
+      const run=this.run;
+      const playTimer=setTimeout(()=>{
+        if(run!==this.run)return;
+        this.activateResource();
+      },this.delay(this.timing.audioPlayDelay));
+      const closeTimer=setTimeout(()=>{
+        if(run!==this.run)return;
+        this.closeResourcePage(true);
+      },this.delay(this.timing.audioDetailDwell));
+      this.timers.push(playTimer,closeTimer);
+    });
+  },
+  renderMusicFeedback(){
+    this.renderCompletionFeedback('musicFeedback','musicFeedback','proactive-music-feedback');
+  },
+  submitMainConversation(event){
+    event?.preventDefault?.();
+    const input=document.getElementById('proactiveMainInput');
+    const value=input?.value.trim();
+    if(!value)return false;
+    const feed=this.feed();
+    if(!feed)return false;
+    const safe=this.escapeDeepText(value);
+    feed.insertAdjacentHTML('beforeend',"<section class=\"proactive-stream-item proactive-user-message\"><div class=\"proactive-stream-break\"></div>"+this.userIdentity()+"<div class=\"proactive-user-bubble\">"+safe+"</div></section>");
+    const node=feed.lastElementChild;
+    input.value='';
+    this.followLatest(node);
+    Audio$?.soft?.();
+    return false;
+  },
+  openSupportPage(kind){
+    const screen=document.getElementById(kind==='art'?'proactiveArtScreen':'proactiveConversationScreen');
+    if(!screen)return;
+    this.closeFoodPage(true);
+    this.closeResourcePage(true);
+    this.closeSupportPage(true);
+    screen.classList.add('on');
+    screen.setAttribute('aria-hidden','false');
+    screen.querySelector('.proactive-detail-body')?.scrollTo({top:0,behavior:'auto'});
+    if(kind==='deep')this.startDeepConversation();
+    Audio$?.soft?.();
+  },
+  closeSupportPage(silent=false){
+    clearTimeout(this.deepReplyTimer);
+    this.deepReplyTimer=null;
+    ['proactiveArtScreen','proactiveConversationScreen'].forEach(id=>{
+      const screen=document.getElementById(id);
+      screen?.classList.remove('on');
+      screen?.setAttribute('aria-hidden','true');
+    });
+    if(!silent)Audio$?.soft?.();
+  },
+  foodData(){
+    const c=this.copy();
+    return {
+      mung:{
+        title:c.mungTitle,meta:c.mungMeta,alt:c.mungAlt,
+        src:'./assets/互动/food-mung-bean-lily.png',steps:c.mungSteps
+      },
+      banana:{
+        title:c.bananaTitle,meta:c.bananaMeta,alt:c.bananaAlt,
+        src:'./assets/互动/food-banana-oat-yogurt.png',steps:c.bananaSteps
+      }
+    };
+  },
+  resourceData(){
+    const c=this.copy();
+    return {
+      music:{
+        group:'night',cardTitle:c.musicCardTitle,cardMeta:c.musicCardMeta,
+        header:c.musicHeader,title:c.musicTitle,meta:c.musicMeta,
+        intro:c.musicIntro,action:c.musicAction,actionActive:c.musicActionActive,
+        alt:c.musicAlt,src:'./assets/互动/night-music-spiegel.png'
+      },
+      meditation:{
+        group:'night',cardTitle:c.meditationCardTitle,cardMeta:c.meditationCardMeta,
+        header:c.meditationHeader,title:c.meditationTitle,meta:c.meditationMeta,
+        intro:c.meditationIntro,action:c.meditationAction,actionActive:c.meditationActionActive,
+        alt:c.meditationAlt,src:'./assets/互动/night-body-scan.png'
+      },
+      book:{
+        group:'perspective',cardTitle:c.bookCardTitle,cardMeta:c.bookCardMeta,
+        header:c.bookHeader,title:c.bookTitle,meta:c.bookMeta,
+        intro:c.bookIntro,action:c.bookAction,actionActive:c.bookActionActive,
+        alt:c.bookAlt,src:'./assets/互动/career-designing-your-life-book.png'
+      },
+      interview:{
+        group:'perspective',cardTitle:c.interviewCardTitle,cardMeta:c.interviewCardMeta,
+        header:c.interviewHeader,title:c.interviewTitle,meta:c.interviewMeta,
+        intro:c.interviewIntro,action:c.interviewAction,actionActive:c.interviewActionActive,
+        alt:c.interviewAlt,src:'./assets/互动/career-interview.png'
+      }
+    };
+  },
+  openFoodPage(kind){
+    const screen=document.getElementById('proactiveFoodScreen');
+    const data=this.foodData()[kind];
+    if(!screen||!data)return;
+    this.closeSupportPage(true);
+    this.closeResourcePage(true);
+    document.getElementById('proactiveFoodPageHeader').textContent=this.copy().foodPageHeader;
+    document.getElementById('proactiveFoodImage').src=data.src;
+    document.getElementById('proactiveFoodImage').alt=data.alt;
+    document.getElementById('proactiveFoodPageTitle').textContent=data.title;
+    document.getElementById('proactiveFoodStepsLabel').textContent=this.copy().foodStepsLabel;
+    document.getElementById('proactiveFoodSteps').innerHTML=data.steps.map(step=>"<li>"+step+"</li>").join('');
+    screen.querySelector('.proactive-detail-back')?.setAttribute('aria-label',this.copy().foodPageBack);
+    screen.classList.add('on');
+    screen.setAttribute('aria-hidden','false');
+    screen.querySelector('.proactive-detail-body')?.scrollTo({top:0,behavior:'auto'});
+    Audio$?.soft?.();
+  },
+  closeFoodPage(silent=false){
+    const screen=document.getElementById('proactiveFoodScreen');
+    screen?.classList.remove('on');
+    screen?.setAttribute('aria-hidden','true');
+    if(!silent)Audio$?.soft?.();
+  },
+  openResourcePage(kind){
+    const screen=document.getElementById('proactiveResourceScreen');
+    const data=this.resourceData()[kind];
+    if(!screen||!data)return;
+    this.closeSupportPage(true);
+    this.closeFoodPage(true);
+    document.getElementById('proactiveResourceHeader').textContent=data.header;
+    document.getElementById('proactiveResourceImage').src=data.src;
+    document.getElementById('proactiveResourceImage').alt=data.alt;
+    document.getElementById('proactiveResourceTitle').textContent=data.title;
+    document.getElementById('proactiveResourceMeta').textContent=data.meta;
+    document.getElementById('proactiveResourceIntro').textContent=data.intro;
+    const action=document.getElementById('proactiveResourceAction');
+    action.textContent=data.action;
+    action.classList.remove('on');
+    action.dataset.resource=kind;
+    screen.querySelector('.proactive-detail-back')?.setAttribute('aria-label',this.copy().resourcePageBack);
+    screen.classList.add('on');
+    screen.setAttribute('aria-hidden','false');
+    screen.querySelector('.proactive-detail-body')?.scrollTo({top:0,behavior:'auto'});
+    Audio$?.soft?.();
+  },
+  closeResourcePage(silent=false){
+    const screen=document.getElementById('proactiveResourceScreen');
+    screen?.classList.remove('on');
+    screen?.setAttribute('aria-hidden','true');
+    if(!silent)Audio$?.soft?.();
+  },
+  activateResource(){
+    const button=document.getElementById('proactiveResourceAction');
+    if(!button)return;
+    const active=button.classList.toggle('on');
+    const data=this.resourceData()[button.dataset.resource];
+    if(!data)return;
+    button.textContent=active?data.actionActive:data.action;
+    Audio$?.soft?.();
+  },
+  startDeepConversation(){
+    const thread=document.getElementById('proactiveDeepThread');
+    if(!thread)return;
+    clearTimeout(this.deepReplyTimer);
+    this.deepReplyTimer=null;
+    const c=this.copy();
+    this.deepTurn=0;
+    thread.innerHTML='';
+    const input=document.getElementById('proactiveDeepInput');
+    const send=document.getElementById('proactiveDeepSend');
+    if(input){input.value='';input.disabled=false;input.setAttribute('placeholder',c.deepPlaceholder);}
+    if(send)send.disabled=false;
+    this.appendDeepMessage([c.deepBodyQuestion],'ai');
+  },
+  escapeDeepText(value){
+    const span=document.createElement('span');
+    span.textContent=String(value);
+    return span.innerHTML;
+  },
+  appendDeepMessage(parts,role='ai',showSignal=false){
+    const thread=document.getElementById('proactiveDeepThread');
+    if(!thread)return null;
+    const c=this.copy();
+    const messages=(Array.isArray(parts)?parts:[parts]).map(part=>"<p>"+(role==='user'?this.escapeDeepText(part):part)+"</p>").join('');
+    const signal=showSignal?"<div class=\"proactive-deep-signal\">"+c.deepVoiceSignalLabel+"</div>":'';
+    const identity=role==='ai'?this.agentIdentity():this.userIdentity('proactive-deep-user-meta');
+    const body=role==='user'?"<div class=\"proactive-deep-user-bubble\">"+messages+"</div>":signal+messages;
+    thread.insertAdjacentHTML('beforeend',"<article class=\"proactive-deep-message "+role+"\">"+identity+body+"</article>");
+    const node=thread.lastElementChild;
+    this.followLatest(node);
+    return node;
+  },
+  submitDeepConversation(event){
+    event?.preventDefault?.();
+    const input=document.getElementById('proactiveDeepInput');
+    const send=document.getElementById('proactiveDeepSend');
+    const value=input?.value.trim();
+    if(!value||input.disabled)return false;
+    const c=this.copy();
+    this.appendDeepMessage([value],'user');
+    input.value='';
+    input.disabled=true;
+    if(send)send.disabled=true;
+    const response=this.deepTurn===0
+      ?[c.deepVoiceObservation,c.deepSelfBlame,c.deepFollowup]
+      :this.deepTurn===1
+        ?[c.deepReason,c.deepReflection,c.deepContinue]
+        :[c.deepContinue];
+    const showSignal=this.deepTurn===0;
+    this.deepTurn+=1;
+    this.deepReplyTimer=setTimeout(()=>{
+      if(!document.getElementById('proactiveConversationScreen')?.classList.contains('on'))return;
+      this.appendDeepMessage(response,'ai',showSignal);
+      input.disabled=false;
+      if(send)send.disabled=false;
+      input.focus();
+      this.deepReplyTimer=null;
+      Audio$?.soft?.();
+    },this.delay(720));
+    return false;
+  },
+  videoData(){
+    const c=this.copy();
+    return {
+      baduan:{
+        title:c.baduanTitle,meta:c.baduanMeta,src:'./assets/互动/baduanjin-sequence.png',
+        duration:480,steps:c.baduanSteps
+      },
+      yoga:{
+        title:c.yogaTitle,meta:c.yogaMeta,src:'./assets/互动/yoga-sequence.png',
+        duration:480,steps:c.yogaSteps
+      }
+    };
+  },
+  openPracticeVideo(kind){
+    const data=this.videoData()[kind];
+    const screen=document.getElementById('practiceVideoScreen');
+    if(!data||!screen)return;
+    this.videoKind=kind;
+    this.videoPercent=0;
+    document.getElementById('practiceVideoHeader').textContent=this.copy().videoHeader;
+    document.getElementById('practiceVideoImage').src=data.src;
+    document.getElementById('practiceVideoImage').alt=data.title;
+    document.getElementById('practiceVideoTitle').textContent=data.title;
+    document.getElementById('practiceVideoMeta').textContent=data.meta;
+    document.getElementById('practiceVideoDuration').textContent=this.formatTime(data.duration);
+    screen.querySelector('.practice-video-close')?.setAttribute('aria-label',this.copy().videoBack);
+    this.setPracticeFullscreen(false);
+    screen.classList.add('on');
+    screen.setAttribute('aria-hidden','false');
+    screen.scrollTop=0;
+    this.updatePracticeVideo();
+    this.setVideoPlaying(true);
+    Audio$?.soft?.();
+  },
+  closePracticeVideo(silent=false){
+    clearInterval(this.videoTimer);
+    this.videoTimer=null;
+    this.videoPlaying=false;
+    const screen=document.getElementById('practiceVideoScreen');
+    this.setPracticeFullscreen(false);
+    screen?.classList.remove('on');
+    screen?.setAttribute('aria-hidden','true');
+    document.getElementById('practiceVideoPlay')?.classList.remove('playing');
+    if(!silent)Audio$?.soft?.();
+  },
+  togglePracticeVideo(){
+    this.setVideoPlaying(!this.videoPlaying);
+  },
+  togglePracticeFullscreen(){
+    const screen=document.getElementById('practiceVideoScreen');
+    if(!screen)return;
+    this.setPracticeFullscreen(!screen.classList.contains('is-expanded'));
+  },
+  setPracticeFullscreen(expanded){
+    const screen=document.getElementById('practiceVideoScreen');
+    const button=document.getElementById('practiceVideoFullscreen');
+    screen?.classList.toggle('is-expanded',Boolean(expanded));
+    button?.setAttribute('aria-expanded',String(Boolean(expanded)));
+    button?.setAttribute('aria-label',expanded?this.copy().videoExitFullscreen:this.copy().videoEnterFullscreen);
+  },
+  setVideoPlaying(playing,simulationDuration=0){
+    clearInterval(this.videoTimer);
+    this.videoTimer=null;
+    this.videoPlaying=playing;
+    const play=document.getElementById('practiceVideoPlay');
+    play?.classList.toggle('playing',playing);
+    play?.setAttribute('aria-label',playing?this.copy().videoPause:this.copy().videoPlay);
+    if(!playing)return;
+    const interval=simulationDuration?60:180;
+    const increment=simulationDuration?100/(simulationDuration/interval):.7;
+    this.videoTimer=setInterval(()=>{
+      this.videoPercent=Math.min(100,this.videoPercent+increment);
+      this.updatePracticeVideo();
+      if(this.videoPercent>=100)this.setVideoPlaying(false);
+    },interval);
+  },
+  updatePracticeVideo(){
+    const data=this.videoData()[this.videoKind];
+    const index=Math.min(3,Math.floor(this.videoPercent/25));
+    const elapsed=Math.round(data.duration*this.videoPercent/100);
+    const progress=document.getElementById('practiceVideoProgress');
+    if(progress)progress.style.width=this.videoPercent+'%';
+    const elapsedNode=document.getElementById('practiceVideoElapsed');
+    if(elapsedNode)elapsedNode.textContent=this.formatTime(elapsed);
+    const stepIndex=document.getElementById('practiceVideoStepIndex');
+    if(stepIndex)stepIndex.textContent=this.copy().videoStep+' '+(index+1)+' / 4';
+    const stepTitle=document.getElementById('practiceVideoStepTitle');
+    if(stepTitle)stepTitle.textContent=data.steps[index];
+    document.querySelectorAll('#practiceVideoDots i').forEach((dot,dotIndex)=>dot.classList.toggle('on',dotIndex===index));
+  },
+  formatTime(seconds){
+    const minutes=Math.floor(seconds/60);
+    const rest=Math.floor(seconds%60);
+    return String(minutes).padStart(2,'0')+':'+String(rest).padStart(2,'0');
+  },
+  followLatest(node){
+    const feed=this.feed();
+    if(!feed||!node)return;
+    const detail=node.closest('.proactive-detail-body');
+    const behavior=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+    const move=()=>detail
+      ?detail.scrollTo({top:Math.max(0,detail.scrollHeight-detail.clientHeight),behavior})
+      :feed.scrollTo({top:Math.max(0,feed.scrollHeight-feed.clientHeight),behavior});
+    requestAnimationFrame(move);
+    const timer=setTimeout(move,this.delay(460));
+    this.timers.push(timer);
+  }
+};
+
 function openHomeAwarenessPlaceholder(){
   Audio$.soft();
   const screen=document.getElementById('homeAwarenessPlaceholder');
   if(screen){
     screen.classList.add('on');
     renderIcons(screen);
-    const feed=document.getElementById('consultantAgentFeed');
-    if(feed)feed.scrollTop=0;
-    setTimeout(()=>document.getElementById('consultantAgentInput')?.focus({preventScroll:true}),260);
+    LOOOVEInteraction.start();
   }
 }
 function closeHomeAwarenessPlaceholder(){
   Audio$.soft();
+  LOOOVEInteraction.stop();
   document.getElementById('homeAwarenessPlaceholder')?.classList.remove('on');
 }
 function consultantScrollToEnd(){
