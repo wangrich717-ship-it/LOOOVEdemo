@@ -1136,7 +1136,7 @@ html[lang="en"] #homeAwarenessPlaceholder :is(
   .proactive-perspective-copy,
   .proactive-user-bubble,
   .proactive-deep-message p
-){font-size:17.2px;line-height:1.7}
+){font-size:17px;line-height:1.7}
 html[lang="en"] #homeAwarenessPlaceholder .proactive-user-label,
 html[lang="en"] #homeAwarenessPlaceholder .proactive-deep-user-meta{font-size:9.5px}
 html[lang="en"] #homeAwarenessPlaceholder .proactive-card-grid .proactive-practice-copy h4{
@@ -1160,6 +1160,85 @@ html[lang="en"] #homeAwarenessPlaceholder .practice-video-step span{font-size:9.
 html[lang="en"] #homeAwarenessPlaceholder .practice-video-step b{font-size:16.5px}
 html[lang="en"] #t-diary .growth-node-meta{font-size:12px}
 html[lang="en"] #t-diary .growth-node-copy{font-size:15px;line-height:1.68;letter-spacing:.018em}
+
+/* English editorial scale: one display, one section, one reading and one utility size. */
+html[lang="en"]{
+  --en-type-display:24px;
+  --en-type-section:18px;
+  --en-type-reading:17px;
+  --en-type-utility:12px;
+}
+html[lang="en"] #homeAwarenessPlaceholder .proactive-profile-copy{
+  font-size:var(--en-type-reading);line-height:1.7
+}
+html[lang="en"] #growthRecordTitle,
+html[lang="en"] #proactiveProfileScreen .practice-video-topbar h2{
+  font-size:var(--en-type-section)
+}
+html[lang="en"] #growthRecordScreen .growth-record-title,
+html[lang="en"] #proactiveProfileScreen .profile-portrait-hero h3{
+  font-size:var(--en-type-display)!important;line-height:1.35
+}
+html[lang="en"] #growthRecordScreen :is(
+  .growth-record-sub,
+  .growth-voice-quote p,
+  .growth-detail-copy,
+  .growth-ai-record,
+  .growth-summary-copy,
+  .growth-body-note,
+  .growth-interaction-turn p,
+  .growth-interaction-piece p,
+  .growth-card-result-item p,
+  .growth-report-detail-list p,
+  .growth-review-item
+){
+  font-size:var(--en-type-reading);line-height:1.72
+}
+html[lang="en"] #growthRecordScreen :is(
+  .growth-record-kicker,
+  .growth-detail-section-title,
+  .growth-voice-quote footer,
+  .growth-body-data span,
+  .growth-record-data-line span,
+  .growth-summary-label,
+  .growth-interaction-role,
+  .growth-interaction-tool b,
+  .growth-card-result-item b,
+  .growth-report-metrics span,
+  .growth-report-detail-list h4
+){
+  font-size:var(--en-type-utility);line-height:1.5
+}
+html[lang="en"] #growthRecordScreen .growth-interaction-piece strong{
+  font-size:var(--en-type-section)
+}
+html[lang="en"] #proactiveProfileScreen :is(
+  .profile-portrait-hero>p,
+  .profile-dimension-card p,
+  .profile-portrait-note p,
+  .profile-companion-plan p
+){
+  font-size:var(--en-type-reading);line-height:1.68
+}
+html[lang="en"] #proactiveProfileScreen :is(
+  .profile-dimension-card b,
+  .profile-companion-plan h4
+){
+  font-size:var(--en-type-section)
+}
+html[lang="en"] #proactiveProfileScreen :is(
+  .profile-portrait-hero small,
+  .profile-traits span,
+  .profile-dimension-card span,
+  .profile-portrait-note small,
+  .profile-companion-plan p span
+){
+  font-size:var(--en-type-utility);line-height:1.45
+}
+html[lang="en"] #proactiveProfileScreen .profile-dimension-card{min-height:0}
+html[lang="en"] #proactiveProfileScreen .profile-companion-plan p{
+  grid-template-columns:98px minmax(0,1fr)
+}
 
 @keyframes homeOrbFloatA{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(6px,-10px,0)}}
 @keyframes homeOrbFloatB{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-7px,8px,0)}}
@@ -7496,6 +7575,7 @@ Object.assign(I18n.exact,{
   '6月12日 · 16:24':'June 12 · 16:24',
   '6月11日 · 21:17':'June 11 · 21:17',
   '6月11日 · 17:08':'June 11 · 17:08',
+  '6月11日 · 10:22':'June 11 · 10:22',
   '6月11日 · 07:44':'June 11 · 07:44',
   '6月11日 · 07:30':'June 11 · 07:30',
   '读完《设计你的人生》，上传了读书笔记。':'Finished Designing Your Life and uploaded reading notes.',
@@ -7522,6 +7602,20 @@ Object.assign(I18n.exact,{
   '盘点数据':'Review data',
   '阶段回看':'Pattern review',
   'LOOOVE 复盘':'LOOOVE review',
+  '互动':'Interaction',
+  '高光':'Glimmer',
+  '波动':'Wave',
+  '盘点':'Review',
+  '阅读':'Reading',
+  '运动':'Movement',
+  '深聊':'Deep conversation',
+  '我读完了，也把书里触动我的部分整理成了笔记。':'I finished the book and turned the parts that moved me into reading notes.',
+  '你的执行力Max，不仅读了书，还认真写下了自己的思考。你没有停在“想明白”，而是在边读、边写、边尝试，那些模糊的可能，已经开始被你一点点带进现实。':'Your follow-through is remarkable: you read, reflected, and wrote your thinking down. You did not stop at understanding; by reading, writing, and experimenting, you are already bringing vague possibilities into real life.',
+  '我最近好疲惫，好烦躁。':'I have been feeling exhausted and irritable lately.',
+  '事情本身、习惯性的自责，以及自己真正想要的，并不是同一件事。':'What happened, the habit of blaming myself, and what I truly want are not the same thing.',
+  '这次对话里，你看清了事情本身、习惯性的自责，以及自己真正想要的。也意识到，凡事先怪自己，正在压缩你的感受和边界。带着这个觉察，继续前进吧~':'In this conversation, you separated what happened from habitual self-blame and from what you truly want. You also noticed how blaming yourself first can narrow your feelings and boundaries. Carry that awareness forward.',
+  '今天先把节奏放轻一点。':'I am letting the pace soften today.',
+  '练习后，心率从 84 降到 72 bpm，肩颈紧张感也有所回落。身体已经从持续消耗里慢慢松开。':'After practice, your heart rate eased from 84 to 72 bpm, and tension in your neck and shoulders softened. Your body is beginning to release from sustained exertion.',
   '你的读书笔记':'Your reading notes',
   '你的觉察':'Your insight',
   '练习记录':'Practice record',
@@ -7772,7 +7866,7 @@ const GROWTH_RECORDS={
     loooveResponse:'你把职业选择从一个抽象问题，慢慢拆成了可以验证的小行动。',
     recommendationTitle:'设计你的人生',recommendationText:'边读，边写，边尝试',
     toolThumb:'./assets/互动/career-designing-your-life-book.png',
-    returnLabel:'你上传',userReturn:'',media:['./assets/互动/career-reading-notes.png'],items:[],
+    returnLabel:'你上传',userReturn:'',media:['./assets/互动/career-reading-notes-en.png'],items:[],
     aiSummary:'你的执行力Max，不仅读了书，还认真写下了自己的思考。你没有停在“想明白”，而是在边读、边写、边尝试，那些模糊的可能，已经开始被你一点点带进现实。'
   },
   deepConversation:{
@@ -7881,8 +7975,11 @@ const GROWTH_RECORDS={
     aiSummary:'这是 LOOOVE 为你完成的本周盘点：压力仍会出现，但你回到稳定的速度更快了。尤其在清楚表达边界之后，HRV 回升更完整。下周继续保留高压后的缓冲，让恢复成为节奏的一部分。'
   }
 };
+function growthRecordText(value){
+  return I18n.lang==='en'?I18n.t(value):value;
+}
 function growthRecordHero(record){
-  return `<section class="growth-record-block"><div class="growth-record-kicker">${esc(record.date)} · ${esc(record.kind)}</div><div class="growth-record-title">${esc(record.headline)}</div></section>`;
+  return `<section class="growth-record-block"><div class="growth-record-kicker">${esc(growthRecordText(record.date))} · ${esc(growthRecordText(record.kind))}</div><div class="growth-record-title">${esc(growthRecordText(record.headline))}</div></section>`;
 }
 function growthSignalRecordMarkup(record){
   const body=record.bodyData.map(([value,label])=>`<div><b>${esc(value)}</b><span>${esc(label)}</span></div>`).join('');
@@ -7894,7 +7991,7 @@ function growthSignalRecordMarkup(record){
 }
 function growthInteractionRecordMarkup(record){
   const mediaClass=record.interactionKind==='抽卡'?'cards':record.interactionKind==='运动'?'practice':record.interactionKind==='阅读'?'reading':'painting';
-  const media=record.media.length?`<div class="growth-interaction-media ${mediaClass}">${record.media.map((src,index)=>`<img src="${esc(src)}" alt="${esc(record.interactionKind)}记录 ${index+1}">`).join('')}</div>`:'';
+  const media=record.media.length?`<div class="growth-interaction-media ${mediaClass}">${record.media.map((src,index)=>`<img src="${esc(src)}" alt="${esc(growthRecordText(record.interactionKind))} record ${index+1}">`).join('')}</div>`:'';
   const cards=record.items.length?`<div class="growth-card-result-row">${record.items.map(([question,answer])=>`<div class="growth-card-result-item"><b>${esc(question)}</b><p>${esc(answer)}</p></div>`).join('')}</div>`:'';
   const outputCopy=!record.media.length&&!record.items.length&&record.userReturn?`<p class="growth-summary-copy">${esc(record.userReturn)}</p>`:'';
   const outputLabels={抽卡:'你的探索',绘画:'你的画作',阅读:'你的读书笔记',深聊:'你的觉察',运动:'练习记录'};
